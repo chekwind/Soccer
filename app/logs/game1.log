@@ -1,0 +1,34 @@
+[2014-02-24 18:55:20.918343]
+ERROR
+	Peer will receive following PB traceback:
+[2014-02-24 18:55:20.993043]
+ERROR
+	Unhandled Error
+Traceback (most recent call last):
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/twisted/spread/banana.py", line 153, in gotItem
+    self.callExpressionReceived(item)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/twisted/spread/banana.py", line 116, in callExpressionReceived
+    self.expressionReceived(obj)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/twisted/spread/pb.py", line 565, in expressionReceived
+    method(*sexp[1:])
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/twisted/spread/pb.py", line 877, in proto_message
+    self._recvMessage(self.localObjectForID, requestID, objectID, message, answerRequired, netArgs, netKw)
+--- <exception caught here> ---
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/twisted/spread/pb.py", line 891, in _recvMessage
+    netResult = object.remoteMessageReceived(self, message, netArgs, netKw)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/twisted/spread/flavors.py", line 114, in remoteMessageReceived
+    state = method(*args, **kw)
+  File "/Library/Python/2.7/site-packages/firefly-1.3.2dev-py2.7.egg/firefly/distributed/reference.py", line 25, in remote_callChild
+    return self._service.callTarget(command,*arg,**kw)
+  File "/Library/Python/2.7/site-packages/firefly-1.3.2dev-py2.7.egg/firefly/utils/services.py", line 84, in callTarget
+    result = self.callTargetSingle(targetKey,*args,**kw)
+  File "/Library/Python/2.7/site-packages/firefly-1.3.2dev-py2.7.egg/firefly/utils/services.py", line 104, in callTargetSingle
+    defer_data = target(*args,**kw)
+  File "/Users/Psyko/Desktop/Soccer/app/game/gatenodeapp/enter.py", line 16, in enterPlace_601
+    gamer=GamerCharacter(characterId,dynamicId=dynamicId)
+  File "/Users/Psyko/Desktop/Soccer/app/game/core/character/GamerCharacter.py", line 38, in __init__
+    self.shop=CharacterShopComponent(self)#商城
+  File "/Users/Psyko/Desktop/Soccer/app/game/component/shop/CharacterShopComponent.py", line 17, in __init__
+    self.shopPackage=ShopPackage()
+exceptions.NameError: global name 'ShopPackage' is not defined
+

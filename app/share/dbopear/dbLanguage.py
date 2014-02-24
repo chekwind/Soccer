@@ -1,0 +1,24 @@
+#coding:utf8
+'''
+Created on 2014-1-20
+
+@author: CC
+'''
+
+from firefly.dbentrust.dbpool import dbpool
+from MySQLdb.cursors import DictCursor
+
+def getAll():
+    '''获取所有翻译信息'''
+    sql="SELECT * FROM tb_language"
+    conn=dbpool.connection()
+    cursor=conn.cursor(cursorclass=DictCursor)
+    cursor.execute(sql)
+    result=cursor.fetchall()
+    cursor.close()
+    if not result:
+        return None
+    data={}
+    for item in result:
+        data[item['id']]=item['content']
+    return data

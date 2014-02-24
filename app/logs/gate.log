@@ -1,0 +1,6 @@
+[2014-02-24 18:55:20.994101]
+ERROR
+	Unhandled Error
+Traceback from remote host -- Traceback unavailable
+exceptions.NameError: global name 'ShopPackage' is not defined
+
