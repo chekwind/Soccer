@@ -42,8 +42,8 @@ class Item(object):
 		'''格式化物品信息'''
 		data=self.baseInfo.getItemTemplateInfo()
 		data['id']=self.baseInfo.getId()
-		data['templateId']=self.baseInfo.getItemTemplateInfo()
-		data['stack']=stack.pack.getStack()
+		data['templateId']=self.baseInfo.getItemTemplateId()
+		data['stack']=self.pack.getStack()
 		return data
 
 	def InsertItemIntoDB(self,characterId=0):
@@ -52,7 +52,7 @@ class Item(object):
 			return
 		itemTemplateId=self.baseInfo.itemTemplateId
 		isBound=0
-		durability=0
+		durability=-1
 		stack=self.pack.getStack()
 		data={'characterId':characterId,'itemTemplateId':itemTemplateId,'isBound':isBound,'accesstime':datetime.datetime.now(),'durability':durability,'stack':stack}
 		newitemmode=tb_item_admin.new(data)

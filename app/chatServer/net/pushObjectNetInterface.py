@@ -6,7 +6,6 @@ Created on 2014-1-20
 '''
 
 
-from app.chatServer.protoFile.chat import ChatToObjectListInfo1010_pb2
 from app.chatServer.core.language.Language import Lg
 from firefly.server.globalobject import GlobalObject
 import json

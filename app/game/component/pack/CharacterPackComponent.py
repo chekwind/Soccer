@@ -14,7 +14,7 @@ from app.game.memmode import tb_item_admin
 from app.game import util
 
 
-MAX_STACK=99
+MAX_STACK=999
 
 class CharacterPackageComponent(Component):
 	'''角色的包裹组件
@@ -50,7 +50,7 @@ class CharacterPackageComponent(Component):
 			item.initItemInstance(itemPackInfo)
 			self._package.putItemInPackage(item)
 
-	def putNewItemsInPackage(self,item):
+	def putNewItemInPackage(self,item):
 		'''放置一个新的物品到包裹栏中
 		@param item: item Object 物品实例
 		@param position: int 物品的位置
@@ -64,6 +64,7 @@ class CharacterPackageComponent(Component):
 			templateId=item.baseInfo.getItemTemplateId()
 			state=0
 			for _item in package.getItems().values():
+				print _item.baseInfo.getItemTemplateId(),templateId
 				if _item.baseInfo.getItemTemplateId()==templateId:
 					_item.pack.updateStack(_item.pack.getStack()+nowstack)
 					state=1
@@ -94,7 +95,7 @@ class CharacterPackageComponent(Component):
 		for count in itemcndlist:
 			_item=copy.deepcopy(item)
 			_item.pack.setStack(count)
-			self.putNewItemsInPackage(_item)
+			self.putNewItemInPackage(_item)
 		return True
 
 	def countItemTemplateId(self,TemplateId):
@@ -223,7 +224,7 @@ class CharacterPackageComponent(Component):
 		'''
 		data={}
 		itemList=self._package._items.values()
-		data['itemlist']=[{'itemid':itemInfo.baseInfo.id,'icon':itemInfo.baseInfo.getItemTemplateInfo()['Icon'],'tempid':itemInfo.baseInfo.getItemTemplateInfo(),'stack':itemInfo.pack.getStack()} for itemInfo in itemList]
+		data['itemlist']=[{'itemid':itemInfo.baseInfo.id,'icon':itemInfo.baseInfo.getItemTemplateInfo()['Icon'],'tempinfo':itemInfo.baseInfo.getItemTemplateInfo(),'stack':itemInfo.pack.getStack()} for itemInfo in itemList]
 		return {'result':True,'data':data}
 
 

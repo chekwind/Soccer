@@ -102,6 +102,13 @@ def calpower():
     client.sendall(sendData(json.dumps({"characterId":1000012}),106))
     print resolveRecvdata(client.recv(1024))
 
+def getshopinfo():
+    client.sendall(sendData(json.dumps({"characterId":1000012,'shopCategory':1}),701))
+    print resolveRecvdata(client.recv(1024))
+
+def buyitem():
+    client.sendall(sendData(json.dumps({"characterId":1000012,'shopCategory':1,'itemId':1101,'buyNum':1}),702))
+    print resolveRecvdata(client.recv(1024))
     
 login()
 #create()
@@ -117,7 +124,7 @@ rolelogin()
 #pickplayer()
 #dissmissplayer()
 #rotateplayer()
-
-
+#getshopinfo()
+#buyitem()
 
 #playerlist()

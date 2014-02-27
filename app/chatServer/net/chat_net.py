@@ -6,10 +6,6 @@ Created on 2014-1-21
 '''
 
 from app.chatServer.core.ChaterLogManager import ChaterLogManager
-
-from app.chatServer.protoFile.chat import SendChatMessage1013_pb2
-from app.chatServer.protoFile.chat import GetOneObjectChatInfo1011_pb2
-from app.chatServer.protoFile.chat import CloseChatWindow1014_pb2
 from app.chatServer.core.language.Language import Lg
 from firefly.server.globalobject import netserviceHandle
 

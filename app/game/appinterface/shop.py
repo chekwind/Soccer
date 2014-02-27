@@ -6,6 +6,8 @@ Created on 2014-2-24
 '''
 
 from app.game.core.GamersManager import GamersManager
+from app.game.core.shop.shopmanager import ShopManager
+from app.game.core.shop.Shop import Shop
 
 def getShopInfo(dynamicId,characterId,shopCategory):
 	'''获取商城信息
@@ -16,7 +18,17 @@ def getShopInfo(dynamicId,characterId,shopCategory):
 	gamer=GamersManager().getGamerByID(characterId)
 	if not gamer or not gamer.CheckClient(dynamicId):
 		return {'result':False,'message':u""}
-	package=gamer.shop.getShopPackage(shopCategory)
-	result=package.getPackageItemInfo()
-	data={'shopCategory':shopCategory,'packageIteminfo':result}
+	shop=ShopManager().getShopByCategory(shopCategory)
+	if not shop:
+		shop=Shop(shopCategory)
+		ShopManager().addShop(shop)
+	data=shop.getShopInfo()
 	return {'result':True,'data':data}
+
+def buyItem(dynamicId,characterId,shopCategory,itemId,buyNum):
+	'''购买道具'''
+	gamer=GamersManager().getGamerByID(characterId)
+	if not gamer or not gamer.CheckClient(dynamicId):
+		return {'result':False,'message':u""}
+	data=gamer.shop.buyItem(shopCategory,itemId,buyNum)
+	return data

@@ -11,8 +11,8 @@ from app.game.component.finance.CharacterFinanceComponent import CharacterFinanc
 from app.game.component.attribute.CharacterAttributeComponent import CharacterAttributeComponent
 from app.game.component.pack.CharacterPackComponent import CharacterPackageComponent
 from app.game.component.mail.CharacterMailListComponent import CharacterMailListComponent
-from app.game.component.zen.CharacterZenComponent import CharacterZenComponent
 from app.game.component.shop.CharacterShopComponent import CharacterShopComponent
+from app.game.component.zen.CharacterZenComponent import CharacterZenComponent
 from app.game.component.player.PlayerComponent import PlayerComponent
 from app.game.component.player.PlayerInner import PlayerInner
 from app.game.memmode import tb_character_admin
@@ -28,14 +28,14 @@ class GamerCharacter(Character):
 		self.dynamicId=dynamicId #角色登录服务器时的动态id
 		#-----------角色的各个组件类----------------
 		self.level=CharacterLevelComponent(self) #角色等级
-		self.finace=CharacterFinanceComponent(self) #角色资产
+		self.finance=CharacterFinanceComponent(self) #角色资产
 		self.pack=CharacterPackageComponent(self) #角色包裹
 		self.attribute=CharacterAttributeComponent(self) #角色属性
 		self.mail=CharacterMailListComponent(self)#角色邮件列表
 		self.playerInner=PlayerInner(self)#球员找寻
 		self.player=PlayerComponent(self)#球队球员
 		self.zen=CharacterZenComponent(self)#球队战术
-		self.shop=CharacterShopComponent(self)#商城
+		self.shop=CharacterShopComponent(self)#商店
 		if status:
 			self.initGamerInfo() #初始化角色
 
@@ -61,8 +61,8 @@ class GamerCharacter(Character):
 		self.attribute.setTrainPoint(data['trainpoint'])
 		self.attribute.setRepute(data['repute'])#角色声望
 		#---------初始化角色资产信息组件---------
-		self.finace.setGameCoin(data['gamecoin'])
-		self.finace.setCoin(data['coin'])
+		self.finance.setGameCoin(data['gamecoin'])
+		self.finance.setCoin(data['coin'])
 		#---------初始化包裹---------------------
 		self.pack.initPack(packageSize=data['packageSize'])
 		#---------初始化角色球员信息-------------
@@ -88,8 +88,8 @@ class GamerCharacter(Character):
 		characterInfo['repute']=self.attribute.getRepute()#声望
 		characterInfo['exp']=int(self.level.getExp())#经验
 		characterInfo['maxExp']=int(self.level.getMaxExp())#最大经验
-		characterInfo['gamecoin']=self.finace.getGameCoin()#银币
-		characterInfo['coin']=self.finace.getCoin()#金币
+		characterInfo['gamecoin']=self.finance.getGameCoin()#银币
+		characterInfo['coin']=self.finance.getCoin()#金币
 		return characterInfo
 
 	def CheckClient(self,dynamicId):
@@ -102,7 +102,7 @@ class GamerCharacter(Character):
 		'''更新角色在数据库中的数据'''
 		cid=self.baseInfo.id
 		pmmode=tb_character_admin.getObj(cid)
-		mapping={'level':self.level.getLevel(),'repute':self.attribute.getRepute(),'gamecoin':self.finace.getGameCoin(),'coin':self.finace.getCoin(),'exp':self.level.getExp(),'energy':self.attribute.getEnergy(),'trainpoint':self.attribute.getTrainPoint(),'power':self.attribute.getPower(),'maxpower':self.attribute.getMaxPower()}
+		mapping={'level':self.level.getLevel(),'repute':self.attribute.getRepute(),'gamecoin':self.finance.getGameCoin(),'coin':self.finance.getCoin(),'exp':self.level.getExp(),'energy':self.attribute.getEnergy(),'trainpoint':self.attribute.getTrainPoint(),'power':self.attribute.getPower(),'maxpower':self.attribute.getMaxPower()}
 		pmmode.update_multi(mapping)
 
 	def CalPower(self):

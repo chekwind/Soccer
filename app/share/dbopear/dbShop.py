@@ -5,13 +5,14 @@ Created on 2014-2-24
 @author: CC
 '''
 from firefly.dbentrust.dbpool import dbpool
+from MySQLdb.cursors import DictCursor
 
-def getShopInfo(shoptype):
-	sql="select * from tb_shop where id =%d"%(shoptype)
+def getShopInfo(shopcategory):
+	sql="select * from tb_shop where shopcategory=%d and begintime<now() and endtime>now()"%(shopcategory)
 	conn=dbpool.connection()
 	cursor=conn.cursor(cursorclass=DictCursor)
 	cursor.execute(sql)
-	result=cursor.fetchone()
+	result=cursor.fetchall()
 	cursor.close()
 	conn.close()
 	return result

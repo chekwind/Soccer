@@ -97,7 +97,7 @@ class BasePackage(object):
 		@param position:int 物品的位置
 		@param itemComponent: Item Object 物品
 		'''
-		for item in self._items:
+		for item in self._items:	
 			if position == item['position']:
 				item['itemComponent']=itemComponent
 				return

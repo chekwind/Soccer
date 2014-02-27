@@ -6,8 +6,6 @@ Created on 2014-1-20
 '''
 from app.chatServer.appinterface import chat
 from app.chatServer.core.Lt import Lt
-from app.chatServer.protoFile.chat import loginToChatServer_pb2
-from app.chatServer.protoFile.chat import sendMessage1003_pb2
 from app.chatServer.core.language.Language import Lg
 from firefly.server.globalobject import netserviceHandle
 import json
