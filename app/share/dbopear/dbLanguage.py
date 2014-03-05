@@ -16,6 +16,7 @@ def getAll():
     cursor.execute(sql)
     result=cursor.fetchall()
     cursor.close()
+    conn.close()
     if not result:
         return None
     data={}

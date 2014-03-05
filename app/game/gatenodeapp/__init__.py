@@ -6,3 +6,4 @@ import loginout
 import player
 import package
 import shop
+import task

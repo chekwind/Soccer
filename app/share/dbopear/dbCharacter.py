@@ -11,18 +11,19 @@ from firefly.dbentrust import util
 from MySQLdb.cursors import DictCursor
 
 def updateGamerInfo(characterId,props):
-	''''''
-	sqlstr=util.forEachUpdateProps('tb_character',props,{'id':characterId})
-	conn=dbpool.connection()
-	cursor=conn.cursor()
-	count=cursor.execute(sqlstr)
-	conn.commit()
-	cursor.close()
-	if count>=1:
+    ''''''
+    sqlstr=util.forEachUpdateProps('tb_character',props,{'id':characterId})
+    conn=dbpool.connection()
+    cursor=conn.cursor()
+    count=cursor.execute(sqlstr)
+    conn.commit()
+    cursor.close()
+    conn.close()
+    if count>=1:
 		return True
-	else:
-		log.err(sqlstr)
-		return False
+    else:
+        log.err(sqlstr)
+        return False
 
 def getAllInfo():
     '''获取所有角色信息'''
@@ -32,6 +33,7 @@ def getAllInfo():
     cursor.execute(sql)
     data=cursor.fetchall()
     cursor.close()
+    conn.close()
     if data:
         return data
     return None
@@ -47,6 +49,7 @@ def updateDontTalk(cid,flg):
     count = cursor.execute(sql)
     conn.commit()
     cursor.close()
+    conn.close()
     if count>=1:
         return True
     return False
@@ -59,6 +62,7 @@ def getInfoByid(characterid):
     cursor.execute(sql)
     data=cursor.fetchone()
     cursor.close()
+    conn.close()
     if data:
         return data
     return None
@@ -102,6 +106,7 @@ def getTop10(typeid):
     cursor.execute(sql)
     result=cursor.fetchall()
     cursor.close()
+    conn.close()
     for item in result:
         data={}
         for i in range(len(filedList)):

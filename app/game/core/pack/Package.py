@@ -77,3 +77,7 @@ class Package(object):
 
 	def removeItemById(self):
 		pass
+
+	def findSparePositionNum(self):
+		'''包裹的格子剩余数量'''
+		return self._size-len(self._items)

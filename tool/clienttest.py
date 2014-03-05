@@ -109,6 +109,14 @@ def getshopinfo():
 def buyitem():
     client.sendall(sendData(json.dumps({"characterId":1000012,'shopCategory':1,'itemId':1101,'buyNum':1}),702))
     print resolveRecvdata(client.recv(1024))
+
+def gettask():
+    client.sendall(sendData(json.dumps({"characterId":1000012}),801))
+    print resolveRecvdata(client.recv(2048))
+
+def committask():
+    client.sendall(sendData(json.dumps({"characterId":1000012,"taskId":1001}),802))
+    print resolveRecvdata(client.recv(2048))
     
 login()
 #create()
@@ -126,5 +134,6 @@ rolelogin()
 #rotateplayer()
 #getshopinfo()
 #buyitem()
+committask()
 
 #playerlist()

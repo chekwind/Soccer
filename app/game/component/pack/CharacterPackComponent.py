@@ -64,7 +64,6 @@ class CharacterPackageComponent(Component):
 			templateId=item.baseInfo.getItemTemplateId()
 			state=0
 			for _item in package.getItems().values():
-				print _item.baseInfo.getItemTemplateId(),templateId
 				if _item.baseInfo.getItemTemplateId()==templateId:
 					_item.pack.updateStack(_item.pack.getStack()+nowstack)
 					state=1

@@ -18,6 +18,7 @@ def getReader(characterid):
 	cursor.execute(sql)
 	data=cursor.fetchone()
 	cursor.close()
+	conn.close()
 	if not data:
 		return None
 	return data
@@ -32,6 +33,7 @@ def getFriendTop(characterid):
 	cursor.execute(sql)
 	data=cursor.fetchone()
 	cursor.close()
+	conn.close()
 	if data:
 		return eval([data[0]])
 	return None
@@ -48,6 +50,7 @@ def updateFriendTop(characterid,friendsid,readersid):
 	count=cursor.execute(sql)
 	conn.commit()
 	cursor.close()
+	conn.close()
 	if count>=1:
 		return True
 	return False
@@ -63,6 +66,7 @@ def addFriendTop(characterid,friendsid):
 	count=cursor.execute(sql)
 	conn.commit()
 	cursor.close()
+	conn.close()
 	if count>=1:
 		return True
 	return False

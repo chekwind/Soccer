@@ -24,6 +24,7 @@ def getChatByid(fid,tid):
 	cursor.execute(sql)
 	data=cursor.fetchall()
 	cursor.close()
+	conn.close()
 	if not data:
 		return None
 	return data
@@ -39,6 +40,7 @@ def getCount(fid,tid):
 	cursor.execute(sql)
 	data=cursor.fetchall()
 	cursor.close()
+	conn.close()
 	if not data:
 		return None
 	return data[0]
@@ -54,6 +56,7 @@ def delChat(fid,tid):
 	cursor.execute(sql)
 	conn.commit()
 	cursor.close()
+	conn.close()
 	if count:
 		return True
 	return False
@@ -66,6 +69,7 @@ def delAllChat():
 	cursor.execute(sql)
 	conn.commit()
 	cursor.close()
+	conn.close()
 	if count:
 		return True
 	return False

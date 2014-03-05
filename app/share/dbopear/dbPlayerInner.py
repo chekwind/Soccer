@@ -29,6 +29,7 @@ def addInfo(characterId,ctime1,ctime2,cs1,cs2,xy,point):
 	count=cursor.execute(sql)
 	conn.commit()
 	cursor.close()
+	conn.close()
 	if count>=1:
 		return True
 	else:
@@ -42,6 +43,7 @@ def updateInfo(characterId,ctime1,ctime2,cs1,cs2,xy,point):
 	count=cursor.execute(sql)
 	conn.commit()
 	cursor.close()
+	conn.close()
 	if count>=1:
 		return True
 	else:

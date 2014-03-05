@@ -67,7 +67,7 @@ class CharacterLevelComponent(Component):
 	def getMaxExp(self):
 		'''计算当前级别的最大经验值'''
 		expinfo=dbExperience.tb_Experience_config.get(self._level,{})
-		maxEXP=expinfo.get('ExpRequired',0)
+		maxEXP=expinfo.get('exprequired',0)
 		return maxEXP
 
 	def getExp(self):

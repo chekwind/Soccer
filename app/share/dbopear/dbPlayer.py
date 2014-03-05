@@ -20,6 +20,7 @@ def UpdatePlayerInfo(playerId,props):
 	count=cursor.execute(sqlstr)
 	conn.commit()
 	cursor.close()
+	conn.close()
 	if count>=1:
 		return True
 	else:
@@ -61,6 +62,7 @@ def getFindPlayerTemplateByLeague(leagueindex):
 	cursor.execute(sql)
 	result=cursor.fetchall()
 	cursor.close()
+	conn.close()
 	conn.close()
 	for player in result:
 		players[player['id']]=player

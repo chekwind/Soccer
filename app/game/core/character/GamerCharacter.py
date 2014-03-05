@@ -13,6 +13,7 @@ from app.game.component.pack.CharacterPackComponent import CharacterPackageCompo
 from app.game.component.mail.CharacterMailListComponent import CharacterMailListComponent
 from app.game.component.shop.CharacterShopComponent import CharacterShopComponent
 from app.game.component.zen.CharacterZenComponent import CharacterZenComponent
+from app.game.component.task.CharacterTaskComponent import CharacterTaskComponent
 from app.game.component.player.PlayerComponent import PlayerComponent
 from app.game.component.player.PlayerInner import PlayerInner
 from app.game.memmode import tb_character_admin
@@ -36,6 +37,7 @@ class GamerCharacter(Character):
 		self.player=PlayerComponent(self)#球队球员
 		self.zen=CharacterZenComponent(self)#球队战术
 		self.shop=CharacterShopComponent(self)#商店
+		self.task=CharacterTaskComponent(self)#任务
 		if status:
 			self.initGamerInfo() #初始化角色
 
@@ -67,6 +69,8 @@ class GamerCharacter(Character):
 		self.pack.initPack(packageSize=data['packageSize'])
 		#---------初始化角色球员信息-------------
 		self.player.initPlayerInfo()
+		#---------初始化角色任务-----------------
+		self.task.initCharacterTask()
 
 	def getDynamicId(self):
 		'''获取角色的动态Id'''
