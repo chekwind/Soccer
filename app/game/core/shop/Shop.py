@@ -9,6 +9,7 @@ from app.game.core.Item import Item
 from app.share.dbopear import dbShop
 
 class Shop:
+	'''商店类'''
 
 	def __init__(self,shopcategory):
 		'''

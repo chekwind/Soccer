@@ -7,3 +7,4 @@ import player
 import package
 import shop
 import task
+import trainbase

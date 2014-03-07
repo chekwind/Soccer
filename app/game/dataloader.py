@@ -8,6 +8,7 @@ Created on 2014-1-17
 from app.share.dbopear import dbShieldWord,dbPlayer,dbItems,dbTask,dbExperience
 import memmode
 from firefly.dbentrust.madminanager import MAdminManager
+from app.game.core.trainbase.TrainBase import TrainBase
 
 def load_config_data():
 	"""从数据库中读取配置信息
@@ -20,6 +21,8 @@ def load_config_data():
 	dbItems.getAll_ItemTemplate()#载入道具模板
 	dbTask.getALLTask()#载入任务
 	dbExperience.getExperience_Config()#载入角色升级经验表
+	trainbase=TrainBase()
+	trainbase.initTrainBase()#初始化训练基地
 
 
 def registe_madmin():

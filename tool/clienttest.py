@@ -117,6 +117,10 @@ def gettask():
 def committask():
     client.sendall(sendData(json.dumps({"characterId":1000012,"taskId":1001}),802))
     print resolveRecvdata(client.recv(2048))
+
+def gettrainbase():
+    client.sendall(sendData(json.dumps({"characterId":1000012}),1001))
+    print resolveRecvdata(client.recv(2048))
     
 login()
 #create()
@@ -134,6 +138,7 @@ rolelogin()
 #rotateplayer()
 #getshopinfo()
 #buyitem()
-committask()
+#committask()
+gettrainbase()
 
 #playerlist()
