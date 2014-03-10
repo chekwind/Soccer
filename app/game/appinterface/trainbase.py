@@ -64,6 +64,7 @@ def doWhenTrainingFinished(attrs,gamer,num):
 	dbTrainbase.updateTrainbaseInfo(gamer.baseInfo.id,{'timeleft':0,'num':0})#更新训练纪录
 
 def endTraining(dynamicId,characterId):#中断训练
+	'''中断训练'''
 	gamer=GamersManager().getGamerByID(characterId)
 	if not gamer or not gamer.CheckClient(dynamicId):
 		return {'result':False,'message':u""}
