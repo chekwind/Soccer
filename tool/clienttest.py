@@ -112,16 +112,25 @@ def buyitem():
 
 def gettask():
     client.sendall(sendData(json.dumps({"characterId":1000012}),801))
-    print resolveRecvdata(client.recv(2048))
+    print resolveRecvdata(client.recv(1024))
 
 def committask():
     client.sendall(sendData(json.dumps({"characterId":1000012,"taskId":1001}),802))
-    print resolveRecvdata(client.recv(2048))
+    print resolveRecvdata(client.recv(1024))
 
 def gettrainbase():
     client.sendall(sendData(json.dumps({"characterId":1000012}),1001))
+    print resolveRecvdata(client.recv(1024))
+
+def begintraining():
+    client.sendall(sendData(json.dumps({"characterId":1000012,'num':3}),1002))
     print resolveRecvdata(client.recv(2048))
     
+def endtraining():
+    client.sendall(sendData(json.dumps({"characterId":1000012}),1003))
+    print resolveRecvdata(client.recv(2048))
+
+
 login()
 #create()
 rolelogin()
@@ -139,6 +148,8 @@ rolelogin()
 #getshopinfo()
 #buyitem()
 #committask()
+begintraining()
+# endtraining()
 gettrainbase()
 
 #playerlist()

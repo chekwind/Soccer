@@ -1,7 +1,12 @@
 import json
 import random
+import math
+import datetime
+import time
 
-base={}
-for i in range(1,21):
-	base[i]=int(3000*(1+random.randrange(0,100,2)*0.01))
-print base
+startTime=datetime.datetime.now()
+finishTime=startTime+datetime.timedelta(seconds=7200)
+startTime=int(time.mktime(startTime.timetuple()))
+finishTime=int(time.mktime(finishTime.timetuple()))
+
+print finishTime-startTime
