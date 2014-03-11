@@ -6,15 +6,19 @@ Created on 2014-2-25
 '''
 from app.game.core.character.Character import Character
 from app.game.component.club.CharacterClubComponent import CharacterClubComponent
-from app.share.dbopear import dbClub
+from app.share.dbopear import dbclub
 
 class NPCClub(Character):
 	'''NPC球队类'''
 
 
-	def __init__(self,id=-1,name='',templateId=0,zenId=1):
+	def __init__(self,id=-1,name='',templateId=0,zenId=1,clubcategory=1):
 		'''初始化NPC球队类'''
-		data=dbClub.ALL_Clubinfo.get(templateId)
+		data={}
+		if clubcategory==1:#挑战赛球队
+			data=dbclub.CHALLENGENPC.get(templateId)
+		elif clubcategory==7:#训练赛球队
+			data=dbclub.TRAINMATCHNPC.get(templateId)
 		Character.__init__(self,id,name)
 		self.setCharacterType(Character.CLUBTYPE)
 		self.templateId=int(data['ID'])

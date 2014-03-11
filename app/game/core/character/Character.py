@@ -11,7 +11,7 @@ class Character(object):
 	'''角色通用类'''
 
 	GAMERTYPE=1 #玩家
-	CLUBTYPE=2#球队
+	CLUBTYPE=2#NPC
 	PLAYERTYPE=3 #球员
 	MAXPOWER=100 #能量最大值
 

@@ -40,7 +40,7 @@ def beginTraining(dynamicId,characterId,num):
 
 	trainbase=TrainBase()
 	status=trainbase.getTrainBase().get(num).get('status')
-	if status=1:#训练场已被占用
+	if status==1:#训练场已被占用
 		return {'result':False,'message':u"yizhanyong"}
 
 	getTrainPoint=trainbase.getTrainBase().get(num).get('trainpoint')*timeleft/3600

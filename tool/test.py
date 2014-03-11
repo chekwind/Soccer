@@ -4,9 +4,9 @@ import math
 import datetime
 import time
 
-startTime=datetime.datetime.now()
-finishTime=startTime+datetime.timedelta(seconds=7200)
-startTime=int(time.mktime(startTime.timetuple()))
-finishTime=int(time.mktime(finishTime.timetuple()))
+def test():
+	for i in range(10):
+		if i<3:
+			return i
 
-print finishTime-startTime
+print test()
