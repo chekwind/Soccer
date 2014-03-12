@@ -14,6 +14,8 @@ from app.game.component.mail.CharacterMailListComponent import CharacterMailList
 from app.game.component.shop.CharacterShopComponent import CharacterShopComponent
 from app.game.component.zen.CharacterZenComponent import CharacterZenComponent
 from app.game.component.task.CharacterTaskComponent import CharacterTaskComponent
+from app.game.component.trainmatch.TrainMatchComponent import TrainMatchComponent
+from app.game.component.challengematch.ChallengeMatchComponent import ChallengeMatchComponent
 from app.game.component.player.PlayerComponent import PlayerComponent
 from app.game.component.player.PlayerInner import PlayerInner
 from app.game.memmode import tb_character_admin
@@ -38,6 +40,8 @@ class GamerCharacter(Character):
 		self.zen=CharacterZenComponent(self)#球队战术
 		self.shop=CharacterShopComponent(self)#商店
 		self.task=CharacterTaskComponent(self)#任务
+		self.trainmatch=TrainMatchComponent(self)#训练赛
+		self.challengematch=ChallengeMatchComponent(self)#挑战赛
 		if status:
 			self.initGamerInfo() #初始化角色
 

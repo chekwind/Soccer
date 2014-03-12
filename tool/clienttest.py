@@ -130,6 +130,10 @@ def endtraining():
     client.sendall(sendData(json.dumps({"characterId":1000012}),1003))
     print resolveRecvdata(client.recv(2048))
 
+def gettrainmtachinfo():
+    client.sendall(sendData(json.dumps({"characterId":1000012,'leagueindex':1}),1201))
+    print resolveRecvdata(client.recv(2048))
+
 
 login()
 # create()
@@ -151,5 +155,6 @@ rolelogin()
 # begintraining()
 # endtraining()
 # gettrainbase()
+gettrainmtachinfo()
 
 # playerlist()

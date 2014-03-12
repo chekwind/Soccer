@@ -5,7 +5,7 @@ Created on 2014-1-17
 @author: CC
 '''
 
-from app.share.dbopear import dbShieldWord,dbPlayer,dbItems,dbTask,dbExperience
+from app.share.dbopear import dbShieldWord,dbPlayer,dbItems,dbTask,dbExperience,dbclub
 import memmode
 from firefly.dbentrust.madminanager import MAdminManager
 from app.game.core.trainbase.TrainBase import TrainBase
@@ -23,6 +23,8 @@ def load_config_data():
 	dbExperience.getExperience_Config()#载入角色升级经验表
 	trainbase=TrainBase()
 	trainbase.initTrainBase()#初始化训练基地
+	dbclub.getTrainMatchNPC()#初始化训练赛npc
+	dbclub.getChallengeNpc()#初始化挑战赛npc
 
 
 def registe_madmin():
