@@ -16,3 +16,12 @@ def getTrainMatchInfoByLeague_1101(dynamicId,request_proto):
 	leagueindex=argument.get('leagueindex')
 	response=trainmatch.getTrainMatchInfoByLeague(dynamicId,characterId,leagueindex)
 	return json.dumps(response)
+
+@remoteserviceHandle
+def doMatch_1102(dynamicId,request_proto):
+	'''根据级别获取训练赛npc信息'''
+	argument=json.loads(request_proto)
+	characterId=argument.get('characterId')
+	npcid=argument.get('npcid')
+	response=trainmatch.doMatch(dynamicId,characterId,npcid)
+	return json.dumps(response)

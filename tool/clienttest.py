@@ -134,6 +134,17 @@ def gettrainmtachinfo():
     client.sendall(sendData(json.dumps({"characterId":1000012,'leagueindex':1}),1201))
     print resolveRecvdata(client.recv(2048))
 
+def getnpcinfo():
+    client.sendall(sendData(json.dumps({"npcid":81}),1301))
+    print resolveRecvdata(client.recv(2048))
+
+def getnpcpower():
+    client.sendall(sendData(json.dumps({"npcid":81}),1302))
+    print resolveRecvdata(client.recv(2048))
+
+def domatch():
+    client.sendall(sendData(json.dumps({"characterId":1000012,"npcid":81}),1102))
+    print resolveRecvdata(client.recv(2048))
 
 login()
 # create()
@@ -155,6 +166,9 @@ rolelogin()
 # begintraining()
 # endtraining()
 # gettrainbase()
-gettrainmtachinfo()
+# gettrainmtachinfo()
+# getnpcinfo()
+# getnpcpower()
+domatch()
 
 # playerlist()

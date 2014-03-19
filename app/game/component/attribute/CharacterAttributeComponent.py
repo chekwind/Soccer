@@ -51,6 +51,10 @@ class CharacterAttributeComponent(Component):
 		self._maxpower=0
 		self._trainpoint=trainpoint
 		self._repute=0
+		self.jingong=0
+		self.zuzhi=0
+		self.fangshou=0
+		self.shoumen=0
 
 	def getExpEff(self):
 		'''获取经验获取百分百'''
@@ -149,7 +153,6 @@ class CharacterAttributeComponent(Component):
 		@param zenid:int 当前战术
 		@param zenlv:int 当前战术等级
 		'''
-		characterId=self._owner.baseInfo.id
 		jiacheng=0#战术加成
 		zonghe=0#综合能力
 		jingong=0#进攻
@@ -193,6 +196,8 @@ class CharacterAttributeComponent(Component):
 		zonghe=zonghe*(jiacheng+100)/100
 		self._power=int(zonghe+0.5)
 
+		self.jingong,self.zuzhi,self.fangshou,self.shoumen=jingong,zuzhi,fangshou,shoumen
+
 		if zenid in (1,2):
 			self._power=int(zonghe+jingong*0.5+0.5)
 		elif zenid in (3,4):
@@ -204,6 +209,10 @@ class CharacterAttributeComponent(Component):
 			self.setMaxPower(self._power)
 
 		return self._power
+
+	def getMatchData(self):
+		'''获取比赛相关信息'''
+		return self.jingong,self.zuzhi,self.fangshou,self.shoumen,self._power
 
 
 

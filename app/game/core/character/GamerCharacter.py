@@ -132,3 +132,7 @@ class GamerCharacter(Character):
 			zenlv=zen.get('lvzen6')
 		power=self.attribute.calClubPower(zenid,zenlv)
 		return power
+
+	def getZenId(self):
+		''''''
+		return self.zen.getZenId()

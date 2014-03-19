@@ -10,3 +10,4 @@ import task
 import trainbase
 import trainmatch
 import challengematch
+import npc

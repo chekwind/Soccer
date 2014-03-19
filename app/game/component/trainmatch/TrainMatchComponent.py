@@ -29,14 +29,15 @@ class TrainMatchComponent(Component):
 		return self.npc
 
 	def getNpc(self):
-		''''''
+		'''获取npc球队信息'''
 		return self.npc
 
 	def doMacth(self,npcid):
-		''''''
+		'''进行比赛'''
 		from app.game.core.character.NPCClub import NPCClub
 		from app.game.core.match.match import DoMatch
-		npc=NPCClub(templateId=npcid)
-		fig=DoMatch([self._owner],[npc])
+		npc=NPCClub(templateId=npcid,clubcategory=7)
+		result=DoMatch(self._owner,npc)
+		return result
 
 
