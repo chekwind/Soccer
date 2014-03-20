@@ -8,8 +8,8 @@ Created on 2014-3-12
 from app.game.core.match.MatchSide import MatchSide
 import random
 
-HUIHE=20
-MAXPROB=400
+HUIHE=20#回合数
+MAXPROB=400#最大概率
 
 class Match:
 	'''比赛类'''
@@ -19,7 +19,7 @@ class Match:
 		self.deffener=deffener
 
 	def DoMatch(self):
-		'''比赛计算'''
+		'''进行比赛'''
 		self.challenger.attribute.calClubPower()
 		self.deffener.attribute.calClubPower()
 		chjingong,chzuzhi,chfangshou,chshoumen,chpower=self.challenger.attribute.getMatchData()
@@ -35,7 +35,7 @@ class Match:
 
 
 	def calMatchData(self,jingong,zuzhi,fangshou,shoumen,zenid):
-		''''''
+		'''根据球队数据计算'''
 		if zenid in(1,2):
 			gong=jingong*0.5+zuzhi*0.5
 			fang=fangshou*0.5+shoumen*0.5
@@ -48,7 +48,7 @@ class Match:
 		return gong,fang
 
 	def getMacthScore(self,goalprob,loseprob):
-		''''''
+		'''获取比赛结果'''
 		if goalprob>MAXPROB:goalprob=MAXPROB
 		if loseprob>MAXPROB:loseprob=MAXPROB
 		offgoal,offlose,defgoal,deflose,offscore,defscore=0,0,0,0,0,0

@@ -14,8 +14,8 @@ from app.game.component.mail.CharacterMailListComponent import CharacterMailList
 from app.game.component.shop.CharacterShopComponent import CharacterShopComponent
 from app.game.component.zen.CharacterZenComponent import CharacterZenComponent
 from app.game.component.task.CharacterTaskComponent import CharacterTaskComponent
-from app.game.component.trainmatch.TrainMatchComponent import TrainMatchComponent
-from app.game.component.challengematch.ChallengeMatchComponent import ChallengeMatchComponent
+from app.game.component.match.TrainMatchComponent import TrainMatchComponent
+from app.game.component.match.ChallengeMatchComponent import ChallengeMatchComponent
 from app.game.component.player.PlayerComponent import PlayerComponent
 from app.game.component.player.PlayerInner import PlayerInner
 from app.game.memmode import tb_character_admin

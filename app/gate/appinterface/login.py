@@ -10,7 +10,7 @@ from app.gate.core.UserManager import UsersManager
 from app.gate.core.virtualcharacter import VirtualCharacter
 from app.gate.core.VCharacterManager import VCharacterManager
 from app.share.dbopear import dbuser
-
+from app.game.core.language.Language import Lg
 from app.gate.core.scenesermanger import SceneSerManager
 from firefly.server.globalobject import GlobalObject
 
@@ -29,7 +29,7 @@ def registerToServer(dynamicId,username,password):
 	if result:
 		return {'result':True}
 	else:
-		return {'result':False}
+		return {'result':False,'message':Lg().g(22)}
 
 
 def loginToServer(dynamicId,username,password):
@@ -39,8 +39,8 @@ def loginToServer(dynamicId,username,password):
 	@param password:str 用户密码
 	'''
 
-	if password=='crotaii':
-		return{'result':False}
+	# if password=='crotaii':
+	# 	return{'result':False}
 	userinfo=dbuser.CheckUserInfo(username)
 	if not userinfo:
 		return {'result':False}

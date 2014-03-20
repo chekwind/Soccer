@@ -33,6 +33,9 @@ def resolveRecvdata(data):
     data = data[17:17+lenght]
     return data
 
+def register():#登录
+    client.sendall(sendData(json.dumps({"username":"psyko","password":"7141283"}),100))
+    print resolveRecvdata(client.recv(1024))
 
 def login():#登录
     client.sendall(sendData(json.dumps({"username":"psyko","password":"7141283"}),101))
@@ -146,9 +149,10 @@ def domatch():
     client.sendall(sendData(json.dumps({"characterId":1000012,"npcid":81}),1102))
     print resolveRecvdata(client.recv(2048))
 
-login()
+register()
+# login()
 # create()
-rolelogin()
+# rolelogin()
 # playertraining()
 # calpower()
 # addplayerexp()
@@ -169,6 +173,6 @@ rolelogin()
 # gettrainmtachinfo()
 # getnpcinfo()
 # getnpcpower()
-domatch()
+# domatch()
 
 # playerlist()

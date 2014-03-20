@@ -36,5 +36,5 @@ class ChallengeMatchComponent(Component):
 		''''''
 		from app.game.core.character.NPCClub import NPCClub
 		from app.game.core.match.match import DoMatch
-		npc=NPCClub(templateId=npcid)
-		fig=DoMatch([self._owner],[npc])
+		npc=NPCClub(templateId=npcid,clubcategory=1)
+		fig=DoMatch(self._owner,npc)
