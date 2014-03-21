@@ -12,7 +12,7 @@ from firefly.server.globalobject import GlobalObject
 from urls import getDayRecordList,getStatistics
 import json
 
-class OperaPlayer(resource.Resource):
+class OperaGamer(resource.Resource):
 
 	def render(self,request):
 		username=request.args['username'][0]
@@ -24,7 +24,7 @@ class OperaPlayer(resource.Resource):
 		if not pid:
 			return "Role does not exist!!!"
 		gate_node=GlobalObject().remote.get('gate')
-		gate_node.callRemote("opera_player",pid,opear_str)
+		gate_node.callRemote("opera_gamer",pid,opear_str)
 		return "Success"
 
 class DayRecored(resource.Resource):

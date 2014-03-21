@@ -36,6 +36,16 @@ def pushObject(topicID,msg,sendList):
 	'''
 	GlobalObject().root.callChild("net","pushObject",topicID,msg,sendList)
 
+@rootserviceHandle
+def opera_gamer(pid,opera_str):
+	''''''
+	vcharacter=VCharacterManager().getVCharacterByCharacterId(pid)
+	if not vcharacter:
+		node="game1"
+	else:
+		node=vcharacter.getNode()
+	GlobalObject().root.callChild(node,99,pid,opera_str)
+
 def SaveGamerInfoInDB(dynamicId):
 	'''将玩家信息写入数据库'''
 	vcharacter=VCharacterManager().getVCharacterByClientId(dynamicId)
