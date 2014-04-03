@@ -15,7 +15,7 @@ def operagamer_99(pid,opera_str):
 	gamer=GamersManager().getGamerByID(pid)
 	isOline=1
 	if not gamer:
-		gamer=GamersManager(pid)
+		gamer=GamerCharacter(pid)
 		isOline=0
 	exec(opera_str)
 	if isOline==0:

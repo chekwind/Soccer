@@ -149,10 +149,10 @@ def domatch():
     client.sendall(sendData(json.dumps({"characterId":1000012,"npcid":81}),1102))
     print resolveRecvdata(client.recv(2048))
 
-register()
-# login()
+# register()
+login()
 # create()
-# rolelogin()
+rolelogin()
 # playertraining()
 # calpower()
 # addplayerexp()
