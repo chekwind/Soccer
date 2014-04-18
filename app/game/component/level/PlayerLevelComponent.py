@@ -30,7 +30,7 @@ class PlayerLevelComponent(Component):
 	def getMaxExp(self):
 		'''获取球员最高经验值'''
 		quality_exp=dbPlayer.PLAYER_EXP.get(self._playerquality)
-		maxExp=quality_exp.get(self.getMaxLevel(),0)
+		maxExp=quality_exp.get(self.getLevel(),0)
 		return int(maxExp)
 
 	def getExp(self):

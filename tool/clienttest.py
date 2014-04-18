@@ -153,6 +153,7 @@ def domatch():
 login()
 # create()
 rolelogin()
+# roleinfo()
 # playertraining()
 # calpower()
 # addplayerexp()
@@ -175,4 +176,4 @@ rolelogin()
 # getnpcpower()
 # domatch()
 
-# playerlist()
+playerlist()

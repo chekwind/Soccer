@@ -220,6 +220,7 @@ class Player(Character):
 		'''格式化球员信息'''
 		templateinfo=dbPlayer.PLAYER_TEMPLATE.get(self.templateId)
 		attrinfo=self.attribute.getAttribute()
+		bili=MAX_ATTRIBUTE_BILI.get(self.level.getLevel())
 		info=attrinfo
 		info['id']=self.baseInfo.getId()#球员的实例ID
 		info['PlayerName']=self.baseInfo.getName()#球员的名字
@@ -230,6 +231,17 @@ class Player(Character):
 		info['Photo']=templateinfo.get('Photo','')
 		info['Nationality']=templateinfo.get('Nationality')
 		info['SpendPoint']=self.SpendPoint
+		info['Level']=self.level.getLevel()
+		info['Exp']=self.level.getExp()
+		info['MaxExp']=self.level.getMaxExp()
+		info['MaxShoot']=self.max_attr(info['Shoot'],bili)
+		info['MaxDribbling']=self.max_attr(info['Dribbling'],bili)
+		info['MaxSpeed']=self.max_attr(info['Speed'],bili)
+		info['MaxPass']=self.max_attr(info['Pass'],bili)
+		info['MaxTackling']=self.max_attr(info['Tackling'],bili)
+		info['MaxTackle']=self.max_attr(info['Tackle'],bili)
+		info['MaxSave']=self.max_attr(info['_Save'],bili)
+		info['MaxResponse']=self.max_attr(info['Response'],bili)
 		return info
 
 	def max_attr(self,attribute,bili):

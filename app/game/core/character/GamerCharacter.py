@@ -98,6 +98,7 @@ class GamerCharacter(Character):
 		characterInfo['maxExp']=int(self.level.getMaxExp())#最大经验
 		characterInfo['gamecoin']=self.finance.getGameCoin()#银币
 		characterInfo['coin']=self.finance.getCoin()#金币
+		characterInfo['zenid']=self.zen.getZenId()
 		return characterInfo
 
 	def CheckClient(self,dynamicId):

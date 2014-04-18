@@ -16,5 +16,5 @@ def enterPlace_601(dynamicId,characterId,placeId,force,gamer):
 		gamer=GamerCharacter(characterId,dynamicId=dynamicId)
 	GamersManager().addGamer(gamer)
 	gamerinfo=gamer.formatInfo()
-	responsedata={'result':True,'message':'','data':{'characterid':gamerinfo['id'],'power':gamerinfo['power'],'photo':gamerinfo['photo'],'repute':gamerinfo['repute'],'name':gamerinfo['nickname'],'level':gamerinfo['level'],'exp':gamerinfo['exp'],'maxexp':gamerinfo['maxExp'],'gamecoin':gamerinfo['gamecoin'],'coin':gamerinfo['coin'],'energy':gamerinfo['energy']}}
+	responsedata={'result':True,'message':'','data':{'characterid':gamerinfo['id'],'power':gamerinfo['power'],'photo':gamerinfo['photo'],'repute':gamerinfo['repute'],'name':gamerinfo['nickname'],'level':gamerinfo['level'],'exp':gamerinfo['exp'],'maxexp':gamerinfo['maxExp'],'gamecoin':gamerinfo['gamecoin'],'coin':gamerinfo['coin'],'energy':gamerinfo['energy'],'trainpoint':gamerinfo['trainpoint'],'zenid':gamerinfo['zenid']}}
 	return responsedata
