@@ -6,7 +6,7 @@ Created on 2014-1-17
 '''
 
 from app.game.component.Component import Component
-from app.game.memmode import tb_item_admin
+from app.dbfront.memmode import tb_item_admin
 
 class ItemAttributeComponent(Component):
 	'''物品附件属性'''

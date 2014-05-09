@@ -9,7 +9,7 @@ from app.game.component.baseInfo.ItemBaseInfoComponent import ItemBaseInfoCompon
 from app.game.component.attribute.ItemAttributeComponent import ItemAttributeComponent
 from app.game.component.pack.ItemPackComponent import ItemPackComponent
 from app.share.dbopear import dbItems
-from app.game.memmode import tb_item_admin
+from app.dbfront.memmode import tb_item_admin
 import datetime
 
 class Item(object):

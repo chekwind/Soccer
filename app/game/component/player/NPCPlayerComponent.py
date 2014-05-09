@@ -7,7 +7,7 @@ Created on 2014-3-18
 from app.game.component.Component import Component
 from app.game.core.character.Player import Player
 import random
-from app.game.memmode import tb_player_admin
+from app.dbfront.memmode import tb_player_admin
 
 class NPCPlayerComponent(Component):
 	'''球队的球员信息类'''

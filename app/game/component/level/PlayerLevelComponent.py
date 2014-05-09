@@ -6,7 +6,7 @@ Created on 2014-2-26
 '''
 from app.game.component.Component import Component
 from app.share.dbopear import dbPlayer
-from app.game.memmode import tb_player_admin
+from app.dbfront.memmode import tb_player_admin
 
 class PlayerLevelComponent(Component):
 	'''球员等级组件类'''

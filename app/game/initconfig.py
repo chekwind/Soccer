@@ -5,7 +5,7 @@ Created on 2014-1-17
 @author: CC
 '''
 
-from dataloader import load_config_data,registe_madmin
+from dataloader import load_config_data
 from firefly.server.globalobject import GlobalObject
 from app.game.core.GamersManager import GamersManager
 from twisted.python import log
@@ -26,5 +26,4 @@ def loadModule():
 	"""
 	"""
 	load_config_data()
-	registe_madmin()
 	from gatenodeapp import *

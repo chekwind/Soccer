@@ -10,7 +10,7 @@ from app.game.component.attribute.PlayerAttributeComponent import PlayerAttribut
 from twisted.python import log
 
 from app.share.dbopear import dbPlayer,dbCharacter
-from app.game.memmode import tb_player_admin
+from app.dbfront.memmode import tb_player_admin
 import datetime
 
 MAX_ATTRIBUTE_BILI={1:22,2:30,3:40,4:52,5:66,6:82,7:100,8:120,9:140}
@@ -134,7 +134,6 @@ class Player(Character):
 		level=self.level.getLevel()
 		bili=MAX_ATTRIBUTE_BILI.get(level)
 		maxtrainpoint=0
-		print Shoot,self.max_attr(templateinfo['Shoot'],bili),attrinfo['Shoot']
 		if Shoot<=self.max_attr(templateinfo['Shoot'],bili):
 			if Shoot>=attrinfo['Shoot']:maxtrainpoint+=self.TrainPointState(Shoot,attrinfo['Shoot'])
 			else:return False
@@ -175,7 +174,6 @@ class Player(Character):
 			else:return False
 		else:return False
 		ctrainpoint=gamer.attribute.getTrainPoint()
-		print ctrainpoint,maxtrainpoint
 		if ctrainpoint>=maxtrainpoint:
 			gamer.attribute.setTrainPoint(ctrainpoint-maxtrainpoint)
 			self.updateSpendPoint(self.SpendPoint+maxtrainpoint)

@@ -10,7 +10,7 @@ from app.game.core.pack import Package
 from app.game.core.Item import Item
 import copy,random
 from app.share.dbopear import dbItems
-from app.game.memmode import tb_item_admin
+from app.dbfront.memmode import tb_item_admin
 from app.game import util
 
 

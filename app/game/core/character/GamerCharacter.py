@@ -18,7 +18,7 @@ from app.game.component.match.TrainMatchComponent import TrainMatchComponent
 from app.game.component.match.ChallengeMatchComponent import ChallengeMatchComponent
 from app.game.component.player.PlayerComponent import PlayerComponent
 from app.game.component.player.PlayerInner import PlayerInner
-from app.game.memmode import tb_character_admin
+from app.dbfront.memmode import tb_character_admin
 
 class GamerCharacter(Character):
 	'''玩家角色类'''

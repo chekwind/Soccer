@@ -6,8 +6,6 @@ Created on 2014-1-17
 '''
 
 from app.share.dbopear import dbShieldWord,dbPlayer,dbItems,dbTask,dbExperience,dbclub
-import memmode
-from firefly.dbentrust.madminanager import MAdminManager
 from app.game.core.trainbase.TrainBase import TrainBase
 
 def load_config_data():
@@ -26,11 +24,3 @@ def load_config_data():
 	dbclub.getTrainMatchNPC()#初始化训练赛npc
 	dbclub.getChallengeNpc()#初始化挑战赛npc
 
-
-def registe_madmin():
-	"""注册数据库与memcached对应
-	"""
-	MAdminManager().registe(memmode.tb_character_admin)
-	MAdminManager().registe(memmode.tb_player_admin)
-	MAdminManager().registe(memmode.tb_item_admin)
-	MAdminManager().registe(memmode.tb_zen_admin)

@@ -6,7 +6,7 @@ Created on 2014-2-19
 '''
 from app.game.component.Component import Component
 from app.share.dbopear import dbZen
-from app.game.memmode import tb_zen_admin
+from app.dbfront.memmode import tb_zen_admin
 
 
 

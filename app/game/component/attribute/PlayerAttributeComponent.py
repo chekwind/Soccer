@@ -7,7 +7,7 @@ Created on 2014-2-27
 from app.game.component.Component import Component
 import random
 from app.share.dbopear import dbPlayer
-from app.game.memmode import tb_player_admin
+from app.dbfront.memmode import tb_player_admin
 
 
 
