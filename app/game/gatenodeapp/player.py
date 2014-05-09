@@ -57,7 +57,7 @@ def upgradePlayer_404(dynamic,request_proto):
 	return json.dumps(response)
 
 @remoteserviceHandle
-def signPlayer_405(dynamic,request_proto):
+def addPlayer_405(dynamic,request_proto):
 	'''添加球员'''
 	argument=json.loads(request_proto)
 	characterId=argument.get('characterId')
@@ -110,5 +110,15 @@ def rotatePlayer_410(dynamic,request_proto):
 	mainPlayerId=argument.get('mainPlayerId')
 	benchPlayerId=argument.get('benchPlayerId')
 	response=player.RotatePlayer(dynamic,characterId,mainPlayerId,benchPlayerId)
+	return json.dumps(response)
+
+@remoteserviceHandle
+def signPlayer_411(dynamic,request_proto):
+	'''遣散球员大厅球员'''
+	argument=json.loads(request_proto)
+	characterId=argument.get('characterId')
+	playerId=argument.get('playerId')
+	gamecoin=argument.get('gamecoin')
+	response=player.SignPlayer(dynamic,characterId,playerId,gamecoin)
 	return json.dumps(response)
 

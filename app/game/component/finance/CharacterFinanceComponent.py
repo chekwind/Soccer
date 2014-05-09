@@ -37,7 +37,10 @@ class CharacterFinanceComponent(Component):
 
 	def addGameCoin(self,gamecoin,state=1):
 		gamecoin=self._gamecoin+gamecoin
+		if gamecoin<0:
+			return False
 		self.updateGameCoin(gamecoin,state=state)
+		return True
 
 	#---------coin---------
 	def getCoin(self):

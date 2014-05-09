@@ -1,0 +1,10 @@
+[2014-05-09 11:10:20.278685]
+ERROR
+	Unhandled error in Deferred:
+[2014-05-09 11:10:20.278977]
+ERROR
+	Unhandled Error
+Traceback (most recent call last):
+Failure: twisted.spread.pb.PBConnectionLost: [Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+

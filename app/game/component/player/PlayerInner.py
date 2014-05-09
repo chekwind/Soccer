@@ -133,24 +133,24 @@ class PlayerInner(Component):
 		index=random.randint(0,count-1)
 		return inner[index]
 
-	def getTime(self,type):
+	def getTime(self,Type):
 		'''获取剩余冷却时间'''
-		if type==1 and self.ctime1:#百里挑一
+		if Type==1 and self.ctime1!="None":#百里挑一
 			s=configure.getchaTime(self.ctime1,configure.m(10))
 			return s
-		elif type==2 and self.ctime2:#千里挑一
+		elif Type==2 and self.ctime2!="None":#千里挑一
 			s=configure.getchaTime(self.ctime2,configure.h(24))
 			return s
 		else:
 			return 0
 
-	def getsycs(self,type):
+	def getsycs(self,Type):
 		'''获取每天剩余免费次数'''
-		if type==1:
+		if Type==1:
 			if self.cs1<0:
 				self.cs1=0
 			return self.cs1
-		elif type==2:
+		elif Type==2:
 			if self.cs2<0:
 				self.cs2=0
 			return self.cs2
@@ -198,7 +198,7 @@ class PlayerInner(Component):
 				self.ctime1=datetime.datetime.now()
 				self.UpdateInner(picktype,leagueindex)
 			else:
-				return {'result':False,'message':u"dianshubugou"}
+				return {'result':False,'message':u"点数不够"}
 			info={'playerid':self.inner[0],'point':self.point,'ctime':self.getTime(picktype),'cs':self.cs1}
 			return {'result':True,'data':info}
 		elif picktype==2:#千里挑一
@@ -211,17 +211,17 @@ class PlayerInner(Component):
 				self.ctime1=datetime.datetime.now()
 				self.UpdateInner(picktype,leagueindex)		
 			else:
-				return {'result':False,'message':u"dianshubugou"}
+				return {'result':False,'message':u"点数不够"}
 			info={'playerid':self.inner[1],'point':self.point,'ctime':self.getTime(picktype),'cs':self.cs2}
 			return {'result':True,'data':info}
 		elif picktype==3:#万里挑一
 			if self.point>costpoint:#点数足够
 				self.UpdateInner(picktype,leagueindex)
 				self.point-=costpoint
-				info={'playerid':self.inner[2],'point':self.point}
-				return {'return':True,'data':info}
+				info={'playerid':self.inner[2],'point':self.point,'ctime':0,'cs':0}
+				return {'result':True,'data':info}
 		else:
-			return {'result':False,'message':u"xuanqiuyuanshibai"}
+			return {'result':False,'message':u"抽取球员失败"}
 
 	def dbupdate(self):
 		'''下线处理中，将信息记录到数据库中'''

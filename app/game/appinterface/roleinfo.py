@@ -16,7 +16,7 @@ def roleInfo(dynamicId,characterId):
 	if dynamicId!=gamer.getDynamicId():
 		return {'result':False,'message':""}
 	gamerinfo=gamer.formatInfo()
-	responsedata={'result':True,'message':'','data':{'characterId':gamerinfo['id'],'rolename':gamerinfo['nickname'],'level':gamerinfo['level'],'exp':gamerinfo['exp'],'maxexp':gamerinfo['maxExp'],'gamecoin':gamerinfo['gamecoin'],'coin':gamerinfo['coin'],'energy':gamerinfo['energy'],'maxenergy':gamerinfo['energy'],'power':gamerinfo['power'],'photo':gamerinfo['photo'],'repute':gamerinfo['repute'],'trainpoint':gamerinfo['trainpoint'],'zenid':gamerinfo['zenid']}}
+	responsedata={'result':True,'message':'','data':{'characterId':gamerinfo['id'],'rolename':gamerinfo['nickname'],'level':gamerinfo['level'],'exp':gamerinfo['exp'],'maxexp':gamerinfo['maxExp'],'gamecoin':gamerinfo['gamecoin'],'coin':gamerinfo['coin'],'energy':gamerinfo['energy'],'maxenergy':gamerinfo['energy'],'power':gamerinfo['power'],'photo':gamerinfo['photo'],'repute':gamerinfo['repute'],'trainpoint':gamerinfo['trainpoint'],'zenid':gamerinfo['zenid'],'tacticspoint':gamerinfo['tacticspoint']}}
 	return responsedata
 
 def calPower(dynamicId,characterId):

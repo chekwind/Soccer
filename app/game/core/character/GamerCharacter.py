@@ -65,6 +65,7 @@ class GamerCharacter(Character):
 		self.attribute.setPower(data['power'])
 		self.attribute.setMaxPower(data['maxpower'])
 		self.attribute.setTrainPoint(data['trainpoint'])
+		self.attribute.setTacticsPoint(data['tacticspoint'])
 		self.attribute.setRepute(data['repute'])#角色声望
 		#---------初始化角色资产信息组件---------
 		self.finance.setGameCoin(data['gamecoin'])
@@ -99,6 +100,7 @@ class GamerCharacter(Character):
 		characterInfo['gamecoin']=self.finance.getGameCoin()#银币
 		characterInfo['coin']=self.finance.getCoin()#金币
 		characterInfo['zenid']=self.zen.getZenId()
+		characterInfo['tacticspoint']=self.attribute.getTacticsPoint()
 		return characterInfo
 
 	def CheckClient(self,dynamicId):
@@ -111,7 +113,7 @@ class GamerCharacter(Character):
 		'''更新角色在数据库中的数据'''
 		cid=self.baseInfo.id
 		pmmode=tb_character_admin.getObj(cid)
-		mapping={'level':self.level.getLevel(),'repute':self.attribute.getRepute(),'gamecoin':self.finance.getGameCoin(),'coin':self.finance.getCoin(),'exp':self.level.getExp(),'energy':self.attribute.getEnergy(),'trainpoint':self.attribute.getTrainPoint(),'power':self.attribute.getPower(),'maxpower':self.attribute.getMaxPower()}
+		mapping={'level':self.level.getLevel(),'repute':self.attribute.getRepute(),'gamecoin':self.finance.getGameCoin(),'coin':self.finance.getCoin(),'exp':self.level.getExp(),'energy':self.attribute.getEnergy(),'trainpoint':self.attribute.getTrainPoint(),'power':self.attribute.getPower(),'maxpower':self.attribute.getMaxPower(),'tacticspoint':self.attribute.getTacticsPoint()}
 		pmmode.update_multi(mapping)
 
 	def CalPower(self):

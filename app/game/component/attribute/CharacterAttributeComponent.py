@@ -50,6 +50,7 @@ class CharacterAttributeComponent(Component):
 		self._power=0
 		self._maxpower=0
 		self._trainpoint=trainpoint
+		self._tacticspoint=0
 		self._repute=0
 		self.jingong=0
 		self.zuzhi=0
@@ -140,6 +141,14 @@ class CharacterAttributeComponent(Component):
 		'''设置训练点'''
 		self._trainpoint=trainpoint
 
+	def getTacticsPoint(self):
+		'''获取训练点'''
+		return self._tacticspoint
+
+	def setTacticsPoint(self,tacticspoint):
+		'''设置训练点'''
+		self._tacticspoint=tacticspoint
+
 	def getRepute(self):
 		'''获取声望值'''
 		return self._repute
@@ -181,7 +190,7 @@ class CharacterAttributeComponent(Component):
 				if i['oldrole']==oldrole and i['newrole']==role:
 					percent=i['Percentage']/100.0
 					break
-			zonghe+=player['PlayerPower']
+			zonghe+=player['PlayerPower']*percent
 			if role==4:
 				jingong+=(player['Shoot']**0.6666666667*(jiacheng+100)/100+player['Dribbling']**0.6666666667*(jiacheng+100)/100)*0.5*percent
 			elif role==3:

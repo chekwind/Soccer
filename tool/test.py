@@ -1,1 +1,2 @@
-print 11%2
+if 1==1 and None:
+	print 1

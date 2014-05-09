@@ -93,12 +93,12 @@ def pickplayer():#挑选球员
     client.sendall(sendData(json.dumps({"characterId":1000012,'picktype':1,'costpoint':10,'leagueindex':5}),408))
     print resolveRecvdata(client.recv(1024))
 
-def dissmissplayer():
+def dissmissplayer():#遣散球员
     client.sendall(sendData(json.dumps({"characterId":1000012,'playerId':16}),409))
     print resolveRecvdata(client.recv(1024))
 
-def rotateplayer():
-    client.sendall(sendData(json.dumps({"characterId":1000012,'mainPlayerId':1,'benchPlayerId':17}),410))
+def rotateplayer():#球员轮换
+    client.sendall(sendData(json.dumps({"characterId":1000012,'mainPlayerId':19,'benchPlayerId':17}),410))
     print resolveRecvdata(client.recv(1024))
 
 def calpower():
@@ -162,7 +162,8 @@ rolelogin()
 # upgrade()
 # packageinfo()
 # dropplayer()
-# pickplayer()
+# playerinner()
+pickplayer()
 # dissmissplayer()
 # rotateplayer()
 # getshopinfo()
@@ -176,4 +177,4 @@ rolelogin()
 # getnpcpower()
 # domatch()
 
-playerlist()
+# playerlist()

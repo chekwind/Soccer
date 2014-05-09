@@ -134,47 +134,48 @@ class Player(Character):
 		level=self.level.getLevel()
 		bili=MAX_ATTRIBUTE_BILI.get(level)
 		maxtrainpoint=0
+		print Shoot,self.max_attr(templateinfo['Shoot'],bili),attrinfo['Shoot']
 		if Shoot<=self.max_attr(templateinfo['Shoot'],bili):
 			if Shoot>=attrinfo['Shoot']:maxtrainpoint+=self.TrainPointState(Shoot,attrinfo['Shoot'])
 			else:return False
-		else:Shoot=attrinfo['Shoot']
+		else:return False
 
 		if Dribbling<=self.max_attr(templateinfo['Dribbling'],bili):
 			if Dribbling>=attrinfo['Dribbling']:maxtrainpoint+=self.TrainPointState(Dribbling,attrinfo['Dribbling'])
 			else:return False
-		else:Dribbling=attrinfo['Dribbling']
+		else:return False
 
 		if Speed<=self.max_attr(templateinfo['Speed'],bili):
 			if Speed>=attrinfo['Speed']:maxtrainpoint+=self.TrainPointState(Speed,attrinfo['Speed'])
 			else:return False
-		else:Speed=attrinfo['Speed']
+		else:return False
 
 		if Pass<=self.max_attr(templateinfo['Pass'],bili):
 			if Pass>=attrinfo['Pass']:maxtrainpoint+=self.TrainPointState(Pass,attrinfo['Pass'])
 			else:return False
-		else:Pass=attrinfo['Pass']
+		else:return False
 
 		if Tackle<=self.max_attr(templateinfo['Tackle'],bili):
 			if Tackle>=attrinfo['Tackle']:maxtrainpoint+=self.TrainPointState(Tackle,attrinfo['Tackle'])
 			else:return False
-		else:Tackle=attrinfo['Tackle']
+		else:return False
 
 		if Tackling<=self.max_attr(templateinfo['Tackling'],bili):
 			if Tackling>=attrinfo['Tackling']:maxtrainpoint+=self.TrainPointState(Tackling,attrinfo['Tackling'])
 			else:return False
-		else:Tackling=attrinfo['Tackling']
+		else:return False
 
 		if _Save<=self.max_attr(templateinfo['_Save'],bili):
 			if _Save>=attrinfo['_Save']:maxtrainpoint+=self.TrainPointState(_Save,attrinfo['_Save'])
 			else:return False
-		else:_Save=attrinfo['_Save']
+		else:return False
 
 		if Response<=self.max_attr(templateinfo['Response'],bili):
 			if Response>=attrinfo['Response']:maxtrainpoint+=self.TrainPointState(Response,attrinfo['Response'])
 			else:return False
-		else:Response=attrinfo['Response']
-
+		else:return False
 		ctrainpoint=gamer.attribute.getTrainPoint()
+		print ctrainpoint,maxtrainpoint
 		if ctrainpoint>=maxtrainpoint:
 			gamer.attribute.setTrainPoint(ctrainpoint-maxtrainpoint)
 			self.updateSpendPoint(self.SpendPoint+maxtrainpoint)
@@ -230,18 +231,20 @@ class Player(Character):
 		info['PlayerQuality']=templateinfo.get('PlayerQuality')
 		info['Photo']=templateinfo.get('Photo','')
 		info['Nationality']=templateinfo.get('Nationality')
+		info['Height']=templateinfo.get('Height')
+		info['Weight']=templateinfo.get('Weight')
 		info['SpendPoint']=self.SpendPoint
 		info['Level']=self.level.getLevel()
 		info['Exp']=self.level.getExp()
 		info['MaxExp']=self.level.getMaxExp()
-		info['MaxShoot']=self.max_attr(info['Shoot'],bili)
-		info['MaxDribbling']=self.max_attr(info['Dribbling'],bili)
-		info['MaxSpeed']=self.max_attr(info['Speed'],bili)
-		info['MaxPass']=self.max_attr(info['Pass'],bili)
-		info['MaxTackling']=self.max_attr(info['Tackling'],bili)
-		info['MaxTackle']=self.max_attr(info['Tackle'],bili)
-		info['MaxSave']=self.max_attr(info['_Save'],bili)
-		info['MaxResponse']=self.max_attr(info['Response'],bili)
+		info['MaxShoot']=self.max_attr(templateinfo['Shoot'],bili)
+		info['MaxDribbling']=self.max_attr(templateinfo['Dribbling'],bili)
+		info['MaxSpeed']=self.max_attr(templateinfo['Speed'],bili)
+		info['MaxPass']=self.max_attr(templateinfo['Pass'],bili)
+		info['MaxTackling']=self.max_attr(templateinfo['Tackling'],bili)
+		info['MaxTackle']=self.max_attr(templateinfo['Tackle'],bili)
+		info['MaxSave']=self.max_attr(templateinfo['_Save'],bili)
+		info['MaxResponse']=self.max_attr(templateinfo['Response'],bili)
 		return info
 
 	def max_attr(self,attribute,bili):

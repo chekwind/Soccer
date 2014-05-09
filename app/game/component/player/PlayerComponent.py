@@ -139,8 +139,9 @@ class PlayerComponent(Component):
 		result=player.PlayerTraining(Shoot,Dribbling,Speed,Pass,Tackle,Tackling,_Save,Response,Trainpoint,gamer)
 		if result:
 			player.SavePlayerAttribute()
+			gamer.CalPower()
 			return {'result':True,'message':u''}
-		return {'result':False,'message':u'jiadianshibai'}
+		return {'result':False,'message':u'保存失败'}
 
 	def addPlayerExp(self,playerId,exp):
 		'''球员加经验'''
@@ -161,10 +162,10 @@ class PlayerComponent(Component):
 		if result:
 			return {'result':True,'message':player.level.getLevel()}
 
-	def IsOnCourt(self,templateId):
-		'''判断球员是否在场上'''
+	def IsOnCourt(self,templateId,playerid):
+		'''判断是否有同名球员在场上'''
 		for player in self._players.values():
-			if templateId==player.templateInfo.get('id') and  player.getPlayerpos()=='z':
+			if templateId==player.templateInfo.get('id') and  player.getPlayerpos()!='z' and player.baseInfo.getId()!=playerid:
 				return 1
 		return 0
 
