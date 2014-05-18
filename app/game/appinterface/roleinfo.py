@@ -14,7 +14,7 @@ def roleInfo(dynamicId,characterId):
 	'''
 	gamer=GamersManager().getGamerBydynamicId(dynamicId)
 	if dynamicId!=gamer.getDynamicId():
-		return {'result':False,'message':""}
+		return {'result':False,'message':"角色不存在"}
 	gamerinfo=gamer.formatInfo()
 	responsedata={'result':True,'message':'','data':{'characterId':gamerinfo['id'],'rolename':gamerinfo['nickname'],'level':gamerinfo['level'],'exp':gamerinfo['exp'],'maxexp':gamerinfo['maxExp'],'gamecoin':gamerinfo['gamecoin'],'coin':gamerinfo['coin'],'energy':gamerinfo['energy'],'maxenergy':gamerinfo['energy'],'power':gamerinfo['power'],'photo':gamerinfo['photo'],'repute':gamerinfo['repute'],'trainpoint':gamerinfo['trainpoint'],'zenid':gamerinfo['zenid'],'tacticspoint':gamerinfo['tacticspoint']}}
 	return responsedata
@@ -23,6 +23,6 @@ def calPower(dynamicId,characterId):
 	''''''
 	gamer=GamersManager().getGamerBydynamicId(dynamicId)
 	if dynamicId!=gamer.getDynamicId():
-		return {'result':False,'message':""}
+		return {'result':False,'message':"角色不存在"}
 	result=gamer.CalPower()
 	return result

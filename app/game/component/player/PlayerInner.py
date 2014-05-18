@@ -135,10 +135,10 @@ class PlayerInner(Component):
 
 	def getTime(self,Type):
 		'''获取剩余冷却时间'''
-		if Type==1 and self.ctime1!="None":#百里挑一
+		if Type==1 and self.ctime1!="None" and self.ctime1!="0":#百里挑一
 			s=configure.getchaTime(self.ctime1,configure.m(10))
 			return s
-		elif Type==2 and self.ctime2!="None":#千里挑一
+		elif Type==2 and self.ctime2!="None" and self.ctime2!="0":#千里挑一
 			s=configure.getchaTime(self.ctime2,configure.h(24))
 			return s
 		else:

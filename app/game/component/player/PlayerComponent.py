@@ -49,7 +49,7 @@ class PlayerComponent(Component):
 			playerid=player.baseInfo.getId()
 			info=player.formatPlayerInfo()
 			playerinfolist.append(info)
-		return {'playerlist':playerinfolist}
+		return {'playerlist':sorted(playerinfolist,key=lambda x:x["id"])}
 
 	def getPlayerListInfo(self):
 		'''获取球队球员列表'''

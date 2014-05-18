@@ -13,7 +13,7 @@ def playerListInfo(dynamicId,characterId):
 	'''获取角色的球员列表'''
 	gamer=GamersManager().getGamerByID(characterId)
 	if not gamer or not gamer.CheckClient(dynamicId):
-		return {'result':False,'message':u""}
+		return {'result':False,'message':u"角色不存在"}
 	playerList=gamer.player.FormatPlayerList()
 	return {'result':True,'data':playerList}
 
@@ -21,7 +21,7 @@ def playertraining(dynamicId,characterId,Shoot,Dribbling,Speed,Pass,Tackle,Tackl
 	'''球员训练'''
 	gamer=GamersManager().getGamerByID(characterId)
 	if not gamer or not gamer.CheckClient(dynamicId):
-		return {'result':False,'message':u"球队信息错误"}
+		return {'result':False,'message':u"角色不存在"}
 	result=gamer.player.PlayerTraining(playerid,Shoot,Dribbling,Speed,Pass,Tackle,Tackling,_Save,Response,Trainpoint,gamer)
 	return result
 
@@ -29,7 +29,7 @@ def addPlayerExp(dynamicId,characterId,playerid,exp):
 	'''球员加经验'''
 	gamer=GamersManager().getGamerByID(characterId)
 	if not gamer or not gamer.CheckClient(dynamicId):
-		return {'result':False,'message':u""}
+		return {'result':False,'message':u"角色不存在"}
 	result=gamer.player.addPlayerExp(playerid,exp)
 	return result
 
@@ -37,7 +37,7 @@ def upgradePlayer(dynamicId,characterId,playerid,gamecoin,itemid):
 	'''球员升级'''
 	gamer=GamersManager().getGamerByID(characterId)
 	if not gamer or not gamer.CheckClient(dynamicId):
-		return {'result':False,'message':u""}
+		return {'result':False,'message':u"角色不存在"}
 	if gamer.finance.addGameCoin(-gamecoin):
 		result=gamer.player.upgradePlayer(playerid)
 		return result
@@ -48,7 +48,7 @@ def addPlayer(dynamicId,characterId,templateId):#添加新球员到替补席
 	'''添加新球员到替补席'''
 	gamer=GamersManager().getGamerByID(characterId)
 	if not gamer or not gamer.CheckClient(dynamicId):
-		return {'result':False,'message':u"球队信息错误"}
+		return {'result':False,'message':u"角色不存在"}
 	result=gamer.player.addPlayer(templateId)
 	return result
 
@@ -56,7 +56,7 @@ def dropPlayer(dynamicId,characterId,playerid):#尚未添加返还训练点
 	'''解雇球员'''
 	gamer=GamersManager().getGamerByID(characterId)
 	if not gamer or not gamer.CheckClient(dynamicId):
-		return {'result':False,'message':u"球队信息错误"}
+		return {'result':False,'message':u"角色不存在"}
 	result=gamer.player.DropPlayer(playerid)
 	if result:		
 		# returnpoint=PlayerInner.DISSMISSPOINT.get(playerquality) 查询训练点
@@ -69,7 +69,7 @@ def getPlayerInner(dynamicId,characterId):
 	'''获取球员寻找信息'''
 	gamer=GamersManager().getGamerByID(characterId)
 	if not gamer or not gamer.CheckClient(dynamicId):
-		return {'result':False,'message':u""}
+		return {'result':False,'message':u"角色不存在"}
 	data={}
 	pi=gamer.playerInner
 	data['xy']=pi.xy
@@ -87,7 +87,7 @@ def PickPlayer(dynamicId,characterId,picktype,leagueindex,costpoint=0):
 	'''挑选球员'''
 	gamer=GamersManager().getGamerByID(characterId)
 	if not gamer or not gamer.CheckClient(dynamicId):
-		return {'result':False,'message':u""}
+		return {'result':False,'message':u"角色不存在"}
 	info=gamer.playerInner.pickPlayer(picktype,costpoint,leagueindex)
 	if info.get('result'):
 		playerid=info.get('data').get('playerid')
@@ -106,7 +106,7 @@ def DissmissPlayer(dynamicId,characterId,playerid):
 	'''遣散球员'''
 	gamer=GamersManager().getGamerByID(characterId)
 	if not gamer or not gamer.CheckClient(dynamicId):
-		return {'result':False,'message':u""}
+		return {'result':False,'message':u"角色不存在"}
 	player=gamer.player.getPlayer(playerid)
 	playerquality=player.level.getPlayerQuality()
 	result=gamer.player.DropPlayer(playerid)
@@ -121,7 +121,7 @@ def RotatePlayer(dynamicId,characterId,mainPlayerid,benchPlayerid):
 	'''球员轮换'''
 	gamer=GamersManager().getGamerByID(characterId)
 	if not gamer or not gamer.CheckClient(dynamicId):
-		return {'result':False,'message':u"未知错误"}
+		return {'result':False,'message':u"角色不存在"}
 	mainplayer=gamer.player.getPlayer(mainPlayerid)
 	benchplayer=gamer.player.getPlayer(benchPlayerid)
 	if mainplayer and benchplayer:
@@ -145,7 +145,7 @@ def SignPlayer(dynamicId,characterId,playerId,gamecoin):#签约球员
 	'''签约球员'''
 	gamer=GamersManager().getGamerByID(characterId)
 	if not gamer or not gamer.CheckClient(dynamicId):
-		return {'result':False,'message':u"球队信息错误"}
+		return {'result':False,'message':u"角色不存在"}
 	player=gamer.player.getPlayer(playerId)
 	if gamer.finance.addGameCoin(-gamecoin):
 		player.setPlayerCategory(2)

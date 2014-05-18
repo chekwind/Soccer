@@ -17,7 +17,7 @@ def getTrainBase(dynamicId,characterId):
 	'''获取训练基地信息'''
 	gamer=GamersManager().getGamerByID(characterId)
 	if not gamer or not gamer.CheckClient(dynamicId):
-		return {'result':False,'message':u""}
+		return {'result':False,'message':u"角色不存在"}
 	trainbase=TrainBase()
 	data=trainbase.getTrainBase()#获取训练基地信息
 	return {'result':True,'data':data}
@@ -26,7 +26,7 @@ def beginTraining(dynamicId,characterId,num):
 	'''开始训练'''
 	gamer=GamersManager().getGamerByID(characterId)
 	if not gamer or not gamer.CheckClient(dynamicId):
-		return {'result':False,'message':u""}
+		return {'result':False,'message':u"角色不存在"}
 	trainpoint=gamer.attribute.getTrainPoint()
 	trainbaseinfo=dbTrainbase.getTrainbaseInfo(characterId)#获取训练纪录
 	if not trainbaseinfo:
@@ -67,7 +67,7 @@ def endTraining(dynamicId,characterId):#中断训练
 	'''中断训练'''
 	gamer=GamersManager().getGamerByID(characterId)
 	if not gamer or not gamer.CheckClient(dynamicId):
-		return {'result':False,'message':u""}
+		return {'result':False,'message':u"角色不存在"}
 	trainpoint=gamer.attribute.getTrainPoint()
 	trainbaseinfo=dbTrainbase.getTrainbaseInfo(characterId)
 	if not trainbaseinfo:

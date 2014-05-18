@@ -141,13 +141,23 @@ class CharacterAttributeComponent(Component):
 		'''设置训练点'''
 		self._trainpoint=trainpoint
 
+	def addTrainPoint(self,trainpoint):
+		'''加训练点'''
+		nowtrainpoint=self._trainpoint+trainpoint
+		self.setTrainPoint(nowtrainpoint)
+
 	def getTacticsPoint(self):
-		'''获取训练点'''
+		'''获取战术点'''
 		return self._tacticspoint
 
 	def setTacticsPoint(self,tacticspoint):
-		'''设置训练点'''
+		'''设置战术点'''
 		self._tacticspoint=tacticspoint
+
+	def addTacticsPoint(self,tacticspoint):
+		'''加战术点'''
+		nowtacticspoint=self._tacticspoint+tacticspoint
+		self.setTacticsPoint(nowtacticspoint)	
 
 	def getRepute(self):
 		'''获取声望值'''
@@ -156,6 +166,11 @@ class CharacterAttributeComponent(Component):
 	def setRepute(self,repute):
 		'''设置声望值'''
 		self._repute=repute
+
+	def addRepute(self,repute):
+		'''加声望值'''
+		nowrepute=self._repute+repute
+		self.setRepute(nowrepute)
 
 	def calClubPower(self,zenid=1,zenlv=0):
 		'''计算球队实力

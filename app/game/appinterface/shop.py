@@ -17,7 +17,7 @@ def getShopInfo(dynamicId,characterId,shopCategory):
 	'''
 	gamer=GamersManager().getGamerByID(characterId)
 	if not gamer or not gamer.CheckClient(dynamicId):
-		return {'result':False,'message':u""}
+		return {'result':False,'message':u"角色不存在"}
 	shop=ShopManager().getShopByCategory(shopCategory)
 	if not shop:
 		shop=Shop(shopCategory)
@@ -29,6 +29,6 @@ def buyItem(dynamicId,characterId,shopCategory,itemId,buyNum):
 	'''购买道具'''
 	gamer=GamersManager().getGamerByID(characterId)
 	if not gamer or not gamer.CheckClient(dynamicId):
-		return {'result':False,'message':u""}
+		return {'result':False,'message':u"角色不存在"}
 	data=gamer.shop.buyItem(shopCategory,itemId,buyNum)
 	return data

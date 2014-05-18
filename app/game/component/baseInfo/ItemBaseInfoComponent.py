@@ -77,7 +77,7 @@ class ItemBaseInfoComponent(BaseInfoComponent):
 
 	def getName(self):
 		'''获取物品名称'''
-		return self.getItemTemplateInfo().get("name","")
+		return self.getItemTemplateInfo().get("ItemName","")
 
 	def getRichName(self):
 		'''获取带颜色的物品名称'''
@@ -89,18 +89,18 @@ class ItemBaseInfoComponent(BaseInfoComponent):
 
 	def getUseScript(self):
 		'''获取物品使用效果脚本'''
-		return self.getItemTemplateInfo().get("script",u'')
+		return self.getItemTemplateInfo().get("Script",u'')
 
 	def getItemUseType(self):
 		'''物品是否可以使用'''
-		usetype=self.getItemTemplateInfo().get("useType",u'')
+		usetype=self.getItemTemplateInfo().get("UseType",u'')
 		if usetype==1:
 			return True
 		return False
 
 	def getItemPageType(self):
 		'''获取物品的类型'''
-		return self.getItemTemplateInfo().get("itemPage",1)
+		return self.getItemTemplateInfo().get("ItemPage",1)
 
 	def getLevelRequired(self):
 		'''获取等级需求'''

@@ -16,3 +16,13 @@ def getItemInPackage_201(dynamicId,request_proto):
 	characterId=argument.get('characterId')
 	response=packageInfo.GetPackageInfo(dynamicId,characterId)
 	return json.dumps(response)
+
+@remoteserviceHandle
+def useItem_202(dynamicId,request_proto):
+	'''使用道具'''
+	argument=json.loads(request_proto)
+	characterId=argument.get('characterId')
+	itemId=argument.get('itemId')
+	targetId=argument.get('targetId')
+	response=packageInfo.UseItem(dynamicId,characterId,itemId,targetId)
+	return json.dumps(response)

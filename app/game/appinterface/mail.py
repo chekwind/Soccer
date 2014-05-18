@@ -14,7 +14,7 @@ def getMailList(dynamicId,characterId):
 	'''
 	gamer=GamersManager().getGamerByID(characterId)
 	if not gamer or not gamer.CheckClient(dynamicId):
-		return{'result':False,'message':u""}
+		return{'result':False,'message':u"角色不存在"}
 	mailListInfo=gamer.mail.getMailList()
 	return {'result':True,'data':mailListInfo}
 
@@ -25,7 +25,7 @@ def getMailInfo(dynamicId,characterId,mailId):
 	'''
 	gamer=GamersManager().getGamerByID(characterId)
 	if not gamer or not gamer.CheckClient(dynamicId):
-		return {'result':False,'message':u""}
+		return {'result':False,'message':u"角色不存在"}
 	mailInfo=gamer.mail.readMail(mailID)
 	return mailInfo
 
@@ -38,7 +38,7 @@ def SaveAndDeleteMail(dynamicId,characterId,setType,requestInfo,mailId,responseM
 	'''
 	gamer=GamersManager.getGamerByID(characterId)
 	if not gamer or not gamer.CheckClient(dynamicId):
-		return {'result':False,'message':u""}
+		return {'result':False,'message':u"角色不存在"}
 	if setType==0:
 		result=gamer.mail.saveMail(requestInfo)
 	elif setType==1:
@@ -62,7 +62,7 @@ def sendMail(dynamicId,characterId,gamerName,title,content):
 	'''
 	gamer=GamersManager().getGamerByID(characterId)
 	if not gamer or not gamer.CheckClient(dynamicId):
-		return {'result':False,'message':u""}
+		return {'result':False,'message':u"角色不存在"}
 	if not dbShieldWord.checkIllegalChar(title):
 		return {'result':False,'message':u""}
 	if not dbShieldWord.checkIllegalChar(content):

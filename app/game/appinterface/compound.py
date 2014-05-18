@@ -13,7 +13,7 @@ def GetCompoundPackage_2109(dynamicId,characterId):
 	'''
 	gamer=GamersManager().getGamerByID(characterId)
 	if not gamer or not gamer.CheckClient(dynamicId):
-		return {'result':False,'message':u""}
+		return {'result':False,'message':u"角色不存在"}
 	response=gamer.pack.HouQuSuiPianBaoguo()
 	return response
 
@@ -22,7 +22,7 @@ def GetOneItemInfo(dynamicId,characterId,itemid):
 	'''
 	gamer=GamersManager().getGamerByID(characterId)
 	if not gamer or not gamer.CheckClient(dynamicId):
-		return {'result':False,'message':u""}
+		return {'result':False,'message':u"角色不存在"}
 	response=gamer.pack.getOneItemInfo(itemid)
 	return response
 
@@ -31,7 +31,7 @@ def GetCompoundItem(dynamicId,characterId,tempid):
 	'''
 	gamer=GamersManager().getGamerByID(characterId)
 	if not gamer or not gamer.CheckClient(dynamicId):
-		return {'result':False,'message':u""}
+		return {'result':False,'message':u"角色不存在"}
 	suipianinfo=dbItems.all_ItemTemplate.get(tempid)
 	if not suipianinfo:
 		return {'result':False,'message':u"合成信息不存在"}
@@ -53,6 +53,6 @@ def CompoundItem(dynamicId,characterId,tempid):
 	'''
 	gamer=GamersManager().getGamerByID(characterId)
 	if not gamer or not gamer.CheckClient(dynamicId):
-		return {'result':False,'message':u""}
+		return {'result':False,'message':u"角色不存在"}
 	response=gamer.pack.CompoundItem(tempid)
 	return response

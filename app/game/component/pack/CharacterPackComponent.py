@@ -134,23 +134,23 @@ class CharacterPackageComponent(Component):
 		result=package.deleteitemById(itemId,count=count)
 		return result#成功
 
-	def useItem(self,itemid):
+	def useItem(self,itemid,targetid):
 		'''使用物品
-		@param packageType: int 包裹分页类型 1 全部 2
-		@param position: int 物品所在的包裹位置
+		@param itemid: int 物品的id
+		@param targetid: int 目标id，默认为0
 		'''
 		item=self._package.getItemById(itemid)
 		if not item:
-			return {'result':False}
+			return {'result':False,'message':u"1"}
 		script=item.baseInfo.getUseScript()#物品使用的脚本
 		if not script:
-			return {'result':Fasle,'message':""}
-		if item.baseInfo.getLevelRequired()>self._owner.level.getLevel():
-			return {'result':Fasle,'message':""}
+			return {'result':False,'message':"2"}
+		# if item.baseInfo.getLevelRequired()>self._owner.level.getLevel():
+		# 	return {'result':False,'message':"等级不足"}
 		try:
 			exec(script)#执行任务脚本
 		except Exception,e:
-			return {'result':Fasle,'message':e.message}
+			return {'result':False,'message':e.message}
 		self.delItemByItemId(itemid,1)
 		return {'result':True,'message':""}
 
@@ -223,7 +223,7 @@ class CharacterPackageComponent(Component):
 		'''
 		data={}
 		itemList=self._package._items.values()
-		data['itemlist']=[{'itemid':itemInfo.baseInfo.id,'icon':itemInfo.baseInfo.getItemTemplateInfo()['Icon'],'tempinfo':itemInfo.baseInfo.getItemTemplateInfo(),'stack':itemInfo.pack.getStack()} for itemInfo in itemList]
+		data['itemlist']=[{'itemid':itemInfo.baseInfo.id,'tempinfo':itemInfo.baseInfo.getItemTemplateInfo(),'stack':itemInfo.pack.getStack()} for itemInfo in itemList]
 		return {'result':True,'data':data}
 
 
