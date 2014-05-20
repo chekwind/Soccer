@@ -21,7 +21,7 @@ def forwarding(key,dynamicId,data):
 	else:
 		user=UsersManager().getUserByDynamicId(dynamicId)
 		if not user:
-			return
+			return "-1"
 		oldvcharacter=VCharacterManager().getVCharacterByClientId(dynamicId)
 		if not oldvcharacter:
 			return

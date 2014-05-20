@@ -90,7 +90,7 @@ def updateUserCharacter(userId,filename,characterId):
 
 def InsertUserCharacter(userId,characterId):
 	''''''
-	sql="update tb_register set characterId=%d where `id`=%d"%(characterId,userId)
+	sql="update tb_character set userid=%d where `id`=%d"%(userId,characterId)
 	conn=dbpool.connection()
 	cursor=conn.cursor()
 	count=cursor.execute(sql)
@@ -124,7 +124,7 @@ def creatNewCharacter(nickname,userId):
 	@param fieldname:str
 	'''
 	nowdatetime=str(datetime.datetime.today())
-	sql="insert into `tb_character`(nickname,createtime) values ('%s','%s')"%(nickname,nowdatetime)
+	sql="insert into `tb_character`(userId,nickname,createtime) values ('%d',%s','%s')"%(userId,nickname,nowdatetime)
 	sql2="select @@IDENTITY"
 	conn=dbpool.connection()
 	cursor=conn.cursor()
@@ -136,16 +136,27 @@ def creatNewCharacter(nickname,userId):
 	conn.close()
 	if result and count:
 		characterId=result[0]
-		InsertUserCharacter(userId,characterId)
+		# InsertUserCharacter(userId,characterId)
 		return characterId
 	else:
 		return 0
 
 def getUserCharacterInfo(characterId):
 	'''
-	@param id:int
 	'''
 	sql="select town from tb_character where id=%d"%(characterId)
+	conn=dbpool.connection()
+	cursor=conn.cursor(cursorclass=DictCursor)
+	cursor.execute(sql)
+	result=cursor.fetchone()
+	cursor.close()
+	conn.close()
+	return result
+
+def getCharacterInfoByUserId(userId):
+	'''
+	'''
+	sql="select * from tb_character where userid=%d"%(userId)
 	conn=dbpool.connection()
 	cursor=conn.cursor(cursorclass=DictCursor)
 	cursor.execute(sql)

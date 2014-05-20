@@ -36,8 +36,6 @@ def loginToServer_101(key,dynamicId,request_proto):
 	response['data']=responsedata
 	if _data:
 		responsedata['userId']=_data.get('userId',0)
-		responsedata['hasRole']=_data.get('hasRole',False)
-		responsedata['characterId']=_data.get('defaultId',False)
 	return json.dumps(response)
 
 @localserviceHandle
@@ -58,11 +56,11 @@ def roleLogin_103(key,dynamicId,request_proto):
 	'''角色登陆'''
 	argument=json.loads(request_proto)
 	userId=argument.get('userId')
-	characterId=argument.get('characterId')
-	data=login.roleLogin(dynamicId,userId,characterId)
+	data=login.roleLogin(dynamicId,userId)
 	if not data.get('result'):
 		return json.dumps(data)
 	placeId=data['data'].get('placeId',1000)
+	characterId=data['data'].get('characterId',0)
 	response={}
 	dd=login.enterScene(dynamicId,characterId,placeId,True)
 	if not dd:

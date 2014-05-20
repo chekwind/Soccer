@@ -11,7 +11,7 @@ INITTOWN=1000
 
 class User:
 	'''用户类'''
-	def __init__(self,name,password,dynamicId=-1):
+	def __init__(self,name=0,password=0,dynamicId=-1,uid=0):
 		'''
 		@param id:int 用户的id
 		@param name:str 用户的名称
@@ -21,7 +21,7 @@ class User:
 		@param characterId:dict 用户的角色
 		@param isEffective:bool 是否是有效的
 		'''
-		self.id=0
+		self.id=uid
 		self.name=name
 		self.password=password
 		self.pid=0
@@ -29,19 +29,25 @@ class User:
 		self.isEffective=True
 		self.characterId=0
 		self.characterInfo={}
-		self.initUser()
+		self.initUser(self.id)
 
-	def initUser(self):
+	def initUser(self,userId):
 		'''初始化用户类'''
-		data=dbuser.getUserInfoByUsername(self.name,self.password)
-		if not data:
-			self.isEffective=False
-			return
-		if not data['enable']:
-			self.isEffective=False
-		self.id=data.get('id',0)
-		self.pid=data.get('pid',0)
-		self.characterId=data.get('characterId',0)
+		if userId:
+			data=dbuser.getCharacterInfoByUserId(userId)
+			if not data:
+				self.isEffective=False
+				return
+			self.characterId=data.get('id',0)
+		else:
+			data=dbuser.getUserInfoByUsername(self.name,self.password)
+			if not data:
+				self.isEffective=False
+				return
+			if not data['enable']:
+				self.isEffective=False
+			self.id=data.get('id',0)
+			self.pid=data.get('pid',0)	
 
 	def getNickName(self):
 		'''获取账号名'''
@@ -59,11 +65,6 @@ class User:
 		'''获取角色信息'''
 		info={}
 		info['userId']=self.id
-		info['defaultId']=self.characterId
-		if not self.characterId:
-			info['hasRole']=False
-		else:
-			info['hasRole']=True
 		return info
 
 	def getCharacterInfo(self):
@@ -107,7 +108,7 @@ class User:
 
 	def disconnectClient(self):
 		'''断开'''
-		from services.rootsupport import SaveGamerInfoInDB
+		from app.gate.gaterootapp.netforwarding import SaveGamerInfoInDB
 		dynamicId=self.dynamicId
 		SaveGamerInfoInDB(dynamicId)
 		msg=u"您的帐号已经在其他地方登录"

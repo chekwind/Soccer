@@ -92,30 +92,28 @@ def deleteRole(dynamicId,userId,characterId,password):
 	result=user.deleteCharacter(characterId,password)
 	return result
 
-def roleLogin(dynamicId,userId,characterId):
+def roleLogin(dynamicId,userId):
 	'''角色登陆
 	@param dynamicId:int 客户端的ID
 	@param userId:int 用户的ID
-	@param characterId:int 角色的ID
 	'''
-
-	user=UsersManager().getUserByDynamicId(dynamicId)
-	if not user:
-		return {'result':False,'messgae':u'conn_error'}
+	user=User(dynamicId=dynamicId,uid=userId)
 	characterInfo=user.getCharacterInfo()
 	if not characterInfo:
-		return {'result':False,'messgae':u'norole'}
-	_characterId=user.characterId
-	if _characterId!=characterId:
-		return {'result':False,'messgae':u'norole'}
-	oldvcharacter=VCharacterManager().getVCharacterByCharacterId(characterId)
-	data={'placeId':characterInfo.get('town',1000)}
-	if oldvcharacter:
-		oldvcharacter.setDynamicId(dynamicId)
+		data['hasRole']=False
+		return {'result':True,'data':data}
 	else:
-		vcharacter=VirtualCharacter(characterId,dynamicId)
-		VCharacterManager().addVCharacter(vcharacter)
-	return {'result':True,'message':u'login_success','data':data}
+		if UsersManager()._users.has_key(user.id):
+			UsersManager().dropUser(user)
+		UsersManager().addUser(user)
+		oldvcharacter=VCharacterManager().getVCharacterByCharacterId(user.characterId)
+		data={'placeId':characterInfo.get('town',1000),'characterId':user.characterId}
+		if oldvcharacter:
+			oldvcharacter.setDynamicId(dynamicId)
+		else:
+			vcharacter=VirtualCharacter(user.characterId,dynamicId)
+			VCharacterManager().addVCharacter(vcharacter)
+	return {'result':True,'data':data}
 
 def enterScene(dynamicId,characterId,placeId,force):
 	'''进入场景
