@@ -29,14 +29,7 @@ def loginToServer_101(key,dynamicId,request_proto):
 	username=argument.get('username')
 	password=argument.get('password')
 	data=login.loginToServer(dynamicId,username,password)
-	response={}
-	_data=data.get('data')
-	response['result']=data.get('result',False)
-	responsedata={}
-	response['data']=responsedata
-	if _data:
-		responsedata['userId']=_data.get('userId',0)
-	return json.dumps(response)
+	return json.dumps(data)
 
 @localserviceHandle
 def activeNewGamer_102(key,dynamicId,request_proto):

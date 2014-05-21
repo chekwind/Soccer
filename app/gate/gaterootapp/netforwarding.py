@@ -7,7 +7,7 @@ Created on 2014-1-17
 
 from firefly.server.globalobject import rootserviceHandle,GlobalObject
 from app.gate.gateservice import localservice
-from app.gate.core.UserManager import UsersManager
+from app.gate.core.UsersManager import UsersManager
 from app.gate.core.VCharacterManager import VCharacterManager
 from app.gate.core.scenesermanger import SceneSerManager
 from twisted.python import log
@@ -22,6 +22,8 @@ def forwarding(key,dynamicId,data):
 		user=UsersManager().getUserByDynamicId(dynamicId)
 		if not user:
 			return "-1"
+		if not user.CheckEffective():
+			return "-2"
 		oldvcharacter=VCharacterManager().getVCharacterByClientId(dynamicId)
 		if not oldvcharacter:
 			return

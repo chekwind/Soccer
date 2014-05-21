@@ -111,6 +111,4 @@ class User:
 		from app.gate.gaterootapp.netforwarding import SaveGamerInfoInDB
 		dynamicId=self.dynamicId
 		SaveGamerInfoInDB(dynamicId)
-		msg=u"您的帐号已经在其他地方登录"
 		self.isEffective=False
-		pushOtherMessage(msg,[self.dynamicId])

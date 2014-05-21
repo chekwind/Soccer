@@ -8,7 +8,7 @@ Created on 2014-1-17
 class VirtualCharacter:
 	'''虚拟角色类'''
 
-	def __init__(self,characterId,dynamicId,node=201000):
+	def __init__(self,characterId,dynamicId,node="game1"):
 		'''
 		@param characterId:int 角色的id
 		@param dynamicId:int 角色的客户端ID

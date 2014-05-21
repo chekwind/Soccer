@@ -18,9 +18,6 @@ class UsersManager:
 
 	def addUser(self,user):
 		'''添加一个用户'''
-		if self._users.has_key(user.id):
-			self._users[user.id].disconnectClient()
-			self.dropUserByID(user.id)
 		self._users[user.id]=user
 
 	def getUserByID(self,uid):
