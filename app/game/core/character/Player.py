@@ -18,7 +18,7 @@ MAX_ATTRIBUTE_BILI={1:22,2:30,3:40,4:52,5:66,6:82,7:100,8:120,9:140}
 class Player(Character):
 	'''球员类'''
 
-	def __init__(self,playerId=0,name='',templateId=0,owner=0,level=1,PlayerCategory=2):
+	def __init__(self,playerId=0,name='',templateId=0,owner=0,level=1,PlayerCategory=2,PlayerPos='z'):
 		'''初始化球员信息'''
 		Character.__init__(self,playerId,name)
 		self.setCharacterType(self.PLAYERTYPE)
@@ -26,7 +26,7 @@ class Player(Character):
 		self._owner=owner#球员所在球队的ID
 		self.level=PlayerLevelComponent(self,level=level,exp=0)
 		self.attribute=PlayerAttributeComponent(self)
-		self.PlayerPos='z'
+		self.PlayerPos=PlayerPos
 		self.PlayerCategory=PlayerCategory
 		self.SpendPoint=0
 		if self.templateId:
@@ -47,6 +47,7 @@ class Player(Character):
 		Tackling=templateinfo.get('Tackling')
 		Save=templateinfo.get('_Save')
 		Response=templateinfo.get('Response')
+		self.PlayerPos=templateinfo.get('PlayerPos')
 		self.attribute.initData(Shoot,Dribbling,Speed,Pass,Tackle,Tackling,Save,Response)
 
 	def initPlayerInstance(self,playerInstanceData):
@@ -98,7 +99,7 @@ class Player(Character):
 			  'PlayerName':templateinfo.get('PlayerName'),
 			  'Level':level,
 			  'Exp':0,
-			  'PlayerPos':'z',
+			  'PlayerPos':self.PlayerPos,
 			  'PlayerCategory':self.PlayerCategory,
 			  'Shoot':Shoot,
 			  'Dribbling':Dribbling,

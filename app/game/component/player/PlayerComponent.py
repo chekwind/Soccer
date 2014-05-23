@@ -8,6 +8,7 @@ from app.game.component.Component import Component
 from app.game.core.character.Player import Player
 import random
 from app.dbfront.memmode import tb_player_admin
+from app.share.dbopear import dbPlayer
 
 class PlayerComponent(Component):
 	'''球队的球员信息类'''
@@ -93,13 +94,13 @@ class PlayerComponent(Component):
 				info[player.baseInfo.getId()]=player
 		return len(info)
 
-	def addPlayer(self,templateId,level=1,PlayerCategory=2):
+	def addPlayer(self,templateId,level=1,PlayerCategory=2,PlayerPos='z'):
 		'''添加一个球员'''
 		if self.getPlayerNum(2)>8:
 			return -1#替补球员已满
 		if self.getPlayerNum(3)>8:
 			return -2#球员大厅已满
-		player=Player(templateId=templateId,level=level,PlayerCategory=PlayerCategory,owner=self._owner.baseInfo.id)
+		player=Player(templateId=templateId,level=level,PlayerCategory=PlayerCategory,owner=self._owner.baseInfo.id,PlayerPos=PlayerPos)
 		result=player.InsertIntoDB()
 		if result:
 			self._players[player.baseInfo.getId()]=player
@@ -169,6 +170,11 @@ class PlayerComponent(Component):
 				return 1
 		return 0
 
+	def initBeginPlayer(self):
+		'''初始化初始球员'''
+		for playertemp in dbPlayer.PLAYER_TEMPLATE_BEGIN.values():
+			self.addPlayer(playertemp['id'],1,1,playertemp['PlayerPos'])
+		
 
 
 

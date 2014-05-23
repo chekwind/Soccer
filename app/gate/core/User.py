@@ -88,13 +88,13 @@ class User:
 		@profession (int)
 		'''
 		if len(nickname)<2 or len(nickname)>20:
-			return {'result':False,'message':u'yhm_buhege'}
+			return {'result':False,'message':u'球队不合格'}
 		if not dbShieldWord.checkIllegalChar(nickname):
-			return {'result':False,'message':u'yhm_feifa'}
+			return {'result':False,'message':u'球队名违法'}
 		if self.characterId:
-			return {'return':False,'message:':u'yijingchuangjian'}
+			return {'return':False,'message':u'已经创建过角色'}
 		if not dbuser.checkCharacterName(nickname):
-			return {'result':False,'message':u'yhm_yicunzai'}
+			return {'result':False,'message':u'球队名存在'}
 		characterId=dbuser.creatNewCharacter(nickname,self.id)
 		if characterId:
 			self.characterId=characterId

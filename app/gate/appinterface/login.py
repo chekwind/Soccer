@@ -27,9 +27,10 @@ def registerToServer(dynamicId,username,password):
 	if not userinfo and 3<len(username)<12 and 3<len(password)<12:
 		result=dbuser.creatUserInfo(username,password)
 	if result:
-		return {'result':True}
+		res=loginToServer(dynamicId,username,password)
+		return res
 	else:
-		return {'result':False,'message':Lg().g(22)}
+		return {'result':False,'message':u"用户名已存在"}
 
 
 def loginToServer(dynamicId,username,password):
@@ -59,14 +60,13 @@ def loginToServer(dynamicId,username,password):
 	UserCharacterInfo=user.getUserCharacterInfo()
 	return{'result':True,'messgae':u'login_success','data':UserCharacterInfo}
 
-def activeNewGamer(dynamicId,userId,nickName):
+def createRole(dynamicId,userId,nickName):
 	'''创建角色
 	arguments={userId,nickName}
 	userId 用户ID
 	nickName 角色昵称
 	profession
 	'''
-
 	user=UsersManager().getUserByDynamicId(dynamicId)
 	if not user:
 		return {'result':False,'messgae':u'连接失败'}
@@ -101,7 +101,7 @@ def roleLogin(dynamicId,userId):
 	user=User(dynamicId=dynamicId,uid=userId)
 	characterInfo=user.getCharacterInfo()
 	if not characterInfo:
-		data['hasRole']=False
+		data={'hasRole':False}
 		return {'result':True,'data':data}
 	else:
 		if UsersManager()._users.has_key(user.id):
@@ -112,7 +112,7 @@ def roleLogin(dynamicId,userId):
 				UsersManager().dropUser(user)
 		UsersManager().addUser(user)
 		oldvcharacter=VCharacterManager().getVCharacterByCharacterId(user.characterId)
-		data={'placeId':characterInfo.get('town',1000),'characterId':user.characterId}
+		data={'placeId':characterInfo.get('town',1000),'characterId':user.characterId,'hasRole':True}
 		if oldvcharacter:
 			oldvcharacter.setDynamicId(dynamicId)
 		else:

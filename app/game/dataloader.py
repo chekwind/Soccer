@@ -16,6 +16,7 @@ def load_config_data():
 	dbPlayer.getAllPlayerTemplate()#载入球员搜索模板
 	for i in range(1,6):
 		dbPlayer.getFindPlayerTemplateByLeague(i)
+	dbPlayer.getInitPlayer()#载入初始球员模板
 	dbItems.getAll_ItemTemplate()#载入道具模板
 	dbTask.getALLTask()#载入任务
 	dbExperience.getExperience_Config()#载入角色升级经验表

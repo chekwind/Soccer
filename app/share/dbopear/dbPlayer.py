@@ -11,6 +11,7 @@ from firefly.dbentrust import util
 PLAYER_EXP={}
 PLAYER_TEMPLATE = {}#球员模板表
 PLAYER_TEMPLATE_FINDABLE={}
+PLAYER_TEMPLATE_BEGIN={}
 
 def UpdatePlayerInfo(playerId,props):
 	'''更新球员信息'''
@@ -67,3 +68,16 @@ def getFindPlayerTemplateByLeague(leagueindex):
 	for player in result:
 		players[player['id']]=player
 	PLAYER_TEMPLATE_FINDABLE[leagueindex]=players
+
+def getInitPlayer():
+	'''获取初始球员的模板信息'''
+	global PLAYER_TEMPLATE
+	sql="SELECT * FROM tb_player_template WHERE `tClubID`=1001"
+	conn=dbpool.connection()
+	cursor=conn.cursor(cursorclass=DictCursor)
+	cursor.execute(sql)
+	result=cursor.fetchall()
+	cursor.close()
+	conn.close()
+	for player in result:
+		PLAYER_TEMPLATE_BEGIN[player['id']]=player

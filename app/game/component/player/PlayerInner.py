@@ -66,8 +66,8 @@ class PlayerInner(Component):
 		'''初始化寻找球员'''
 		Component.__init__(self,owner)
 		self.owner=owner
-		self.ctime1=None#百里挑一记录时间
-		self.ctime2=None#千里挑一记录时间
+		self.ctime1="None"#百里挑一记录时间
+		self.ctime2="None"#千里挑一记录时间
 		self.inner=[0,0,0]#找到的球员
 		self.cs1=10#百里挑一免费次数
 		self.cs2=3#千里挑一免费次数
@@ -135,10 +135,10 @@ class PlayerInner(Component):
 
 	def getTime(self,Type):
 		'''获取剩余冷却时间'''
-		if Type==1 and self.ctime1!="None" and self.ctime1!="0":#百里挑一
+		if Type==1 and self.ctime1!="None":#百里挑一
 			s=configure.getchaTime(self.ctime1,configure.m(10))
 			return s
-		elif Type==2 and self.ctime2!="None" and self.ctime2!="0":#千里挑一
+		elif Type==2 and self.ctime2!="None":#千里挑一
 			s=configure.getchaTime(self.ctime2,configure.h(24))
 			return s
 		else:
@@ -220,6 +220,8 @@ class PlayerInner(Component):
 				self.point-=costpoint
 				info={'playerid':self.inner[2],'point':self.point,'ctime':0,'cs':0}
 				return {'result':True,'data':info}
+			else:
+				return {'result':False,'message':u"点数不够"}
 		else:
 			return {'result':False,'message':u"抽取球员失败"}
 

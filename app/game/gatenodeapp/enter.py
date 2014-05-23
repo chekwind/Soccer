@@ -15,6 +15,9 @@ def enterPlace_601(dynamicId,characterId,placeId,force,gamer):
 	if not gamer:
 		gamer=GamerCharacter(characterId,dynamicId=dynamicId)
 	GamersManager().addGamer(gamer)
+	if not gamer.player.getPlayers():
+		gamer.player.initBeginPlayer()
+		gamer.CalPower()
 	gamerinfo=gamer.formatInfo()
 	responsedata={'result':True,'message':'','data':{'characterid':gamerinfo['id'],'power':gamerinfo['power'],'photo':gamerinfo['photo'],'repute':gamerinfo['repute'],'name':gamerinfo['nickname'],'level':gamerinfo['level'],'exp':gamerinfo['exp'],'maxexp':gamerinfo['maxExp'],'gamecoin':gamerinfo['gamecoin'],'coin':gamerinfo['coin'],'energy':gamerinfo['energy'],'trainpoint':gamerinfo['trainpoint'],'zenid':gamerinfo['zenid'],'tacticspoint':gamerinfo['tacticspoint'],'hasRole':True}}
 	return responsedata

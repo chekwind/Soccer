@@ -124,7 +124,7 @@ def creatNewCharacter(nickname,userId):
 	@param fieldname:str
 	'''
 	nowdatetime=str(datetime.datetime.today())
-	sql="insert into `tb_character`(userId,nickname,createtime) values ('%d',%s','%s')"%(userId,nickname,nowdatetime)
+	sql="insert into `tb_character`(userId,nickname,createtime) values ('%d','%s','%s')"%(userId,nickname,nowdatetime)
 	sql2="select @@IDENTITY"
 	conn=dbpool.connection()
 	cursor=conn.cursor()

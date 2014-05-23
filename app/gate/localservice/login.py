@@ -32,12 +32,12 @@ def loginToServer_101(key,dynamicId,request_proto):
 	return json.dumps(data)
 
 @localserviceHandle
-def activeNewGamer_102(key,dynamicId,request_proto):
+def createRole_102(key,dynamicId,request_proto):
 	'''创建角色'''
 	argument=json.loads(request_proto)
 	userId=argument.get('userId')
 	nickName=argument.get('rolename')
-	data=login.activeNewGamer(dynamicId,userId,nickName)
+	data=login.createRole(dynamicId,userId,nickName)
 	return json.dumps(data)
 
 def SerializePartialEnterScene(result,response):
@@ -50,7 +50,7 @@ def roleLogin_103(key,dynamicId,request_proto):
 	argument=json.loads(request_proto)
 	userId=argument.get('userId')
 	data=login.roleLogin(dynamicId,userId)
-	if not data.get('result'):
+	if not data.get('result') or not data.get('data').get('hasRole'):
 		return json.dumps(data)
 	placeId=data['data'].get('placeId',1000)
 	characterId=data['data'].get('characterId',0)

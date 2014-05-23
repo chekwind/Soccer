@@ -6,8 +6,8 @@ Created on 2014-2-8
 '''
 from app.game.gatenodeservice import remoteserviceHandle
 from app.game.appinterface import player
+from app.game.core.character.GamerCharacter import GamerCharacter
 import json
-
 
 @remoteserviceHandle
 def playerListInfo_401(dynamic,request_proto):
