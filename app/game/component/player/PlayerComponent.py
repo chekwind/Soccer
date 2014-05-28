@@ -141,7 +141,7 @@ class PlayerComponent(Component):
 		if result:
 			player.SavePlayerAttribute()
 			gamer.CalPower()
-			return {'result':True,'message':u''}
+			return {'result':True,'message':u'保存成功'}
 		return {'result':False,'message':u'保存失败'}
 
 	def addPlayerExp(self,playerId,exp):
@@ -161,7 +161,7 @@ class PlayerComponent(Component):
 		player=self._players.get(playerId)
 		result=player.upgradePlayer()
 		if result:
-			return {'result':True,'message':player.level.getLevel()}
+			return {'result':True,'message':u'升级成功'}
 
 	def IsOnCourt(self,templateId,playerid):
 		'''判断是否有同名球员在场上'''

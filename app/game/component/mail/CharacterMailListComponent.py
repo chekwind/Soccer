@@ -43,7 +43,7 @@ class CharacterMailListComponent(Component):
 	def getMailList(self):
 		'''获取角色邮件列表'''
 		data={}
-		mailList=dbMail.getGamerMailList(self._owner.baseInfo.id)
+		mailList=dbMail.getGamerSysMailList(self._owner.baseInfo.id)
 		data['maillist']=mailList
 		return data
 

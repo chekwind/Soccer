@@ -138,7 +138,7 @@ def endtraining():#结束训练
     print resolveRecvdata(client.recv(2048))
 
 def gettrainmtachinfo():#获取训练赛信息
-    client.sendall(sendData(json.dumps({"characterId":1000012,'leagueindex':1}),1201))
+    client.sendall(sendData(json.dumps({"characterId":1000012,'leagueindex':3}),1101))
     print resolveRecvdata(client.recv(2048))
 
 def getnpcinfo():#获取NPC球队信息
@@ -177,9 +177,9 @@ rolelogin()
 # begintraining()
 # endtraining()
 # gettrainbase()
-# gettrainmtachinfo()
+gettrainmtachinfo()
 # getnpcinfo()
 # getnpcpower()
 # domatch()
 
-playerlist()
+# playerlist()

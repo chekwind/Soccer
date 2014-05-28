@@ -10,7 +10,7 @@ import json
 
 @remoteserviceHandle
 def getChallengeMatchInfoByLeague_1201(dynamicId,request_proto):
-	'''根据级别获取训练赛npc信息'''
+	'''根据级别获取巡回赛npc信息'''
 	argument=json.loads(request_proto)
 	characterId=argument.get('characterId')
 	leagueindex=argument.get('leagueindex')

@@ -24,9 +24,9 @@ class TrainMatchComponent(Component):
 	def getNpcByLeague(self,leagueindex):
 		'''根据级别获取npc球队'''
 		for npc in dbclub.TRAINMATCHNPC.values():
-			if npc['LeagueIndex']==leagueindex:
+			if npc['LeagueIndex']<=leagueindex:
 				self.npc.append(npc)
-		return self.npc
+		return {'NPC':sorted(self.npc,key=lambda x:x["PowerIndex"])}
 
 	def getNpc(self):
 		'''获取npc球队信息'''

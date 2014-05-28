@@ -106,44 +106,15 @@ def getGamerSavMailCnd(characterId):
 	conn.close()
 	return result[0]
 
-def getGamerMailList(characterId):
-	'''获取角色邮件列表'''
-	data=getGamerAllMailCnd(characterId)
-	return data
 
-def getGamerAllMailList(characterId):
-	'''获取角色邮件列表
-	@param characterId:int 角色的id
-	'''
-	filedList=['id','sneder','title','type','isReaded','sendTime']
-	sqlstr=''
-	sqlstr=forEachQueryProps(sqlstr,filedList)
-	sql="select %s from `tb_mail` where receiverId=%d and isSaved=0 order by isReaded,sendTime desc"%(sqlstr,characterId)
-	conn=dbpool.connection()
-	cursor=conn.cursor()
-	cursor.execute(sql)
-	result=cursor.fetchall()
-	cursor.close()
-	conn.close()
-	data=[]
-	for mail in result:
-		mailInfo={}
-		for i in range(len(mail)):
-			if filedList[i]=='sendTime':
-				mailInfo['sendTime']=str(mail[i])
-			else:
-				mailInfo['sendTime']=mail[i]
-		data.append(mailInfo)
-	return data
-
-def getGamerSysMailList(characterId,page,limit):
-	'''获取角色邮件列表
+def getGamerSysMailList(characterId):
+	'''获取角色系统邮件列表
 	@param characterId: int 角色的id
 	'''
 	filedList = ['id','title','type','isReaded','sendTime','content']
 	sqlstr=''
-	sql=forEachQueryProps(sqlstr,filedList)
-	sql="select %s from `tb_mail` where receiverId=%d and `type`=0 and isSaved=0 order by isReaded,sendTime desc LIMIT %d,%d"%(sqlstr,characterId,(page-1)*limit,limit)
+	sqlstr=forEachQueryProps(sqlstr,filedList)
+	sql="select %s from `tb_mail` where receiverId=%d and `type`=0 and isSaved=0 order by isReaded,sendTime desc"%(sqlstr,characterId)
 	conn=dbpool.connection()
 	cursor=conn.cursor()
 	cursor.execute(sql)
@@ -158,14 +129,14 @@ def getGamerSysMailList(characterId,page,limit):
 		data.append(mailInfo)
 	return data
 
-def getGamerFriMailList(characterId,page,limit):
-	'''获取角色邮件列表
+def getGamerFriMailList(characterId):
+	'''获取角色好友邮件列表
 	@param characterId:int 角色的id
 	'''
 	filedList=['id','title','type','isReaded','sendTime','content']
 	sqlstr=''
 	sqlstr=forEachQueryProps(sqlstr,filedList)
-	sql="select %s from `tb_mail` where receiverId=%d and `type`=1 and isSaved = 0 order by isReaded LIMIT %d,%d"%(sqlstr,characterId,(page-1)*limit,limit)
+	sql="select %s from `tb_mail` where receiverId=%d and `type`=1 and isSaved = 0 order by isReaded"%(sqlstr,characterId)
 	conn=dbpool.connection()
 	cursor=conn.cursor()
 	cursor.execute(sql)
@@ -180,14 +151,14 @@ def getGamerFriMailList(characterId,page,limit):
 		data.append(mailInfo)
 	return data
 
-def getGamerSavMailList(characterId,page,limit):
-	'''获取角色邮件列表
+def getGamerSavMailList(characterId):
+	'''获取角色保存邮件列表
 	@param characterId:int 角色的id
 	'''
 	filedList=['id','title','type','isReaded','sendTime','content']
 	sqlstr=''
 	sqlstr=forEachQueryProps(sqlstr,filedList)
-	sql="select %s from `tb_mail` where receiverId=%d and `isSaved` =1 order by isReaded LIMIT %d,%d"%(sqlstr,characterId,(page-1)*limit,limit)
+	sql="select %s from `tb_mail` where receiverId=%d and `isSaved` =1 order by isReaded LIMIT"%(sqlstr,characterId)
 	conn=dbpool.connection()
 	cursor=conn.cursor()
 	cursor.execute(sql)
