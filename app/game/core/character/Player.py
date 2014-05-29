@@ -47,7 +47,6 @@ class Player(Character):
 		Tackling=templateinfo.get('Tackling')
 		Save=templateinfo.get('_Save')
 		Response=templateinfo.get('Response')
-		self.PlayerPos=templateinfo.get('PlayerPos')
 		self.attribute.initData(Shoot,Dribbling,Speed,Pass,Tackle,Tackling,Save,Response)
 
 	def initPlayerInstance(self,playerInstanceData):

@@ -13,7 +13,7 @@ def getplayersuiji_bai():
 	'''百里挑一随机'''
 	while True:
 		rate=random.randint(1,100000)
-		if rate>99900:
+		if rate>99000:
 			yield 4 #杰出
 		elif rate>85000:
 			yield 3 #精英
@@ -27,21 +27,21 @@ def getplayersuiji_qian():
 	while True:
 		rate=random.randint(1,100000)
 		if rate>99900:
-			yield 5 #大牌
+			yield 6 #巨星
 		elif rate>85000:
-			yield 4 #杰出
+			yield 5 #大牌
 		elif rate>50000:
-			yield 3 #精英
+			yield 4 #杰出
 		else:
-			yield 2 #优秀
+			yield 3 #精英
 
 def getplayersuiji_wan():
 	'''万里挑一随机'''
 	while True:
 		rate=random.randint(1,100000)
-		if rate>99900:
+		if rate>95000:
 			yield 6 #巨星
-		elif rate>85000:
+		elif rate>70000:
 			yield 5 #大牌
 		else:
 			yield 4 #杰出

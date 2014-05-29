@@ -128,16 +128,25 @@ def RotatePlayer(dynamicId,characterId,mainPlayerid,benchPlayerid):
 		maintempID=mainplayer.templateInfo.get('id')
 		bebchtempID=benchplayer.templateInfo.get('id')
 		if not gamer.player.IsOnCourt(bebchtempID,benchPlayerid) or maintempID==bebchtempID:
+			playertemps=gamer.player.getPlayers()
 			mainpos=mainplayer.getPlayerpos()
 			benchpos=benchplayer.getPlayerpos()
 			maincategory=mainplayer.getPlayerCategory()
 			benchcategory=benchplayer.getPlayerCategory()
 			mainplayer.savePlayerpos(benchpos,benchcategory)
 			benchplayer.savePlayerpos(mainpos,maincategory)
+			players=[]
+			for player in gamer.player.getPlayers().values():
+				if player.getPlayerpos()>='a' and player.getPlayerpos()<'z':#场上球员
+					info=player.formatPlayerInfo()
+					players.append(info)
+			if len(players)!=11:#球员不是11人
+				gamer.player._players=playertemps
+				return {'result':False,'message':u"换人失败"}
 			gamer.CalPower()
 			return {'result':True,'message':u""}
 		else:
-			return{'result':False,'message':u"该球员已经在场上"}
+			return {'result':False,'message':u"该球员已经在场上"}
 	else:
 		return {'result':False,'message':u"球员不存在"}
 
@@ -149,6 +158,7 @@ def SignPlayer(dynamicId,characterId,playerId,gamecoin):#签约球员
 	player=gamer.player.getPlayer(playerId)
 	if gamer.finance.addGameCoin(-gamecoin):
 		player.setPlayerCategory(2)
+		player.setPlayerpos('z')
 		return {'result':True,'message':u""}
 	else:
 		return {'result':False,'message':u"银币不足"}
