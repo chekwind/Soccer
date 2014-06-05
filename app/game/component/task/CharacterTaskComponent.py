@@ -64,7 +64,7 @@ class CharacterTaskComponent(Component):
 				taskInfo=Task(taskId,characterId=self._owner.baseInfo.id,status=1)
 				canReceivedTaskList.append(taskInfo.formatTaskInfo())
 
-		return canReceivedTaskList
+		return {"tasks":canReceivedTaskList}
 
 	def autoApplyTask(self,taskId):
 		'''自动接受任务'''

@@ -63,7 +63,7 @@ class Task(object):
 				stack=price[1]
 				item=Item(itemTemplateId=itemId)
 				item.pack.setStack(stack)
-				itemprice.append(item.formatItemInfo())
+				itemprice.append({"itemid":itemId,"stack":stack})
 		return itemprice
 
 	def hasFinished(self):

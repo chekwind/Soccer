@@ -16,7 +16,7 @@ def TaskAcceptTaskList(dynamicId,characterId):
 	if not gamer or not gamer.CheckClient(dynamicId):
 		return {'result':False,'message':u"角色不存在"}
 	data=gamer.task.getReceivedTaskList()
-	return {'result':True,'tasks':data}
+	return {'result':True,'data':data}
 
 def commitTask(dynamicId,characterId,taskId):
 	'''提交任务'''
