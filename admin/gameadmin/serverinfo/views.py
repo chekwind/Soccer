@@ -26,11 +26,12 @@ def GetDayRecored(request):
         server = ServerInfo.objects.get(id=serverid)
         address = server.ip
         #port = server.webport
-        port = server.loginport
+        port = 2014
         if server.started:
-            call = 'dayrecored'
+            call = 'dayrecord'
             urls = "http://%s:%s/%s?index=%s"%(address,port,call,index)
             urls2= "http://%s:%s/statistics"%(address,port)
+            print urls,urls2
             urlresult = urllib2.urlopen(urls)
             urlresult2 = urllib2.urlopen(urls2)
             result = urlresult.read()

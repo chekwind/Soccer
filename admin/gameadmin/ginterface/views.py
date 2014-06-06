@@ -199,7 +199,7 @@ def opearPlayer(request):
             if con_obj:
                 con_str = con_obj % change_val
                 #con_str += "("+change_val+")"
-                url = "http://localhost:2012/opera?username=" + username + "&opera_str=" + con_str
+                url = "http://localhost:2014/opera?username=" + username + "&opera_str=" + con_str
                 urlresult = urllib2.urlopen(url)
                 result = urlresult.read()
             else:
@@ -208,7 +208,7 @@ def opearPlayer(request):
             con_obj = operaStrDict.get(select_act)
             if con_obj:
                 con_str = con_obj % (change_templateId,change_number)
-                url = "http://localhost:2012/opera?username=" + username + "&opera_str=" + con_str
+                url = "http://localhost:2014/opera?username=" + username + "&opera_str=" + con_str
                 urlresult = urllib2.urlopen(url)
                 result = urlresult.read()
         else:

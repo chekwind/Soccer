@@ -20,14 +20,14 @@ class OperaGamer(resource.Resource):
 		usermodedata=register_admin.getObjData(username)
 		if not usermodedata:
 			return "Account dose not exist!!!"
-		pid=usermodedata.get('characterId')
+		pid=usermodedata.get('id')
 		if not pid:
 			return "Role does not exist!!!"
 		gate_node=GlobalObject().remote.get('gate')
 		gate_node.callRemote("opera_gamer",pid,opera_str)
 		return "Success"
 
-class DayRecored(resource.Resource):
+class DayRecord(resource.Resource):
 	'''获取每日的纪录'''
 	def render(self,request):
 		index=int(request.args['index'][0])

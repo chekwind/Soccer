@@ -7,5 +7,5 @@ Created on 2014-3-20
 
 from firefly.dbentrust.mmode import MAdmin
 
-register_admin=MAdmin('tb_register','username')
+register_admin=MAdmin('tb_character','nickname')
 register_admin.insert()

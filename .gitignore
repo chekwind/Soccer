@@ -1,4 +1,5 @@
 
-app/logs/admin.log
-
 *.log
+
+*.pyc
+
