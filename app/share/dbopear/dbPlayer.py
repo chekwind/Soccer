@@ -4,9 +4,9 @@ Created on 2014-1-26
 
 @author: CC
 '''
-from firefly.dbentrust.dbpool import dbpool
+from gfirefly.dbentrust.dbpool import dbpool
 from MySQLdb.cursors import DictCursor
-from firefly.dbentrust import util
+from gfirefly.dbentrust import util
 
 PLAYER_EXP={}
 PLAYER_TEMPLATE = {}#球员模板表

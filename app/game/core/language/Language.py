@@ -4,8 +4,8 @@ Created on 2014-3-20
 
 @author: CC
 '''
-from firefly.utils.singleton import Singleton
-from twisted.python import log
+from gfirefly.utils.singleton import Singleton
+from gtwisted.utils import log
 from app.share.dbopear import dbLanguage
 
 class Lg:

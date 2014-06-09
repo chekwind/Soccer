@@ -6,4 +6,3 @@ Created on 2014-3-20
 '''
 
 from admin import initconfig
-initconfig.loadModule()

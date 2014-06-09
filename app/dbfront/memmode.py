@@ -4,7 +4,7 @@ Created on 2014-1-17
 
 @author: CC
 '''
-from firefly.dbentrust.mmode import MAdmin
+from gfirefly.dbentrust.mmode import MAdmin
 
 tb_character_admin=MAdmin('tb_character','id',incrkey='id')
 tb_character_admin.insert()

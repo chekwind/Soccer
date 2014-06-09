@@ -4,9 +4,9 @@ Created on 2014-3-3
 
 @author: CC
 '''
-from firefly.dbentrust.dbpool import dbpool
+from gfirefly.dbentrust.dbpool import dbpool
 from MySQLdb.cursors import DictCursor
-from firefly.dbentrust import util
+from gfirefly.dbentrust import util
 import datetime
 
 all_TaskTemplate={}

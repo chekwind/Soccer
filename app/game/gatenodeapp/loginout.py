@@ -7,7 +7,7 @@ Created on 2014-1-17
 
 from app.game.gatenodeservice import remoteserviceHandle
 from app.game.core.GamersManager import GamersManager
-from twisted.python import log
+from gtwisted.utils import log
 
 @remoteserviceHandle
 def NetConnLost_2(dynamicId):

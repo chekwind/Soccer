@@ -4,9 +4,9 @@ Created on 2014-2-15
 
 @author: CC
 '''
-from firefly.dbentrust.dbpool import dbpool
+from gfirefly.dbentrust.dbpool import dbpool
 from MySQLdb.cursors import DictCursor
-from firefly.dbentrust import util
+from gfirefly.dbentrust import util
 
 def getByid(characterId):
 	'''根据角色id获取寻找球员信息'''

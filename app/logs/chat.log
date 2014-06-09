@@ -1,187 +1,42 @@
-[2014-06-05 18:30:40.331805]
+[2014-06-09 14:31:42.461533]
 ERROR
-	Log observer <bound method FileLogObserver.emit of <twisted.python.log.FileLogObserver instance at 0x102cf1b00>> failed.
-Traceback (most recent call last):
-  File "/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/twisted/internet/base.py", line 1169, in run
-    self.mainLoop()
-  File "/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/twisted/internet/base.py", line 1181, in mainLoop
-    self.doIteration(t)
-  File "/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/twisted/internet/selectreactor.py", line 104, in doSelect
-    [], timeout)
-  File "/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/twisted/internet/base.py", line 611, in sigTerm
-    log.msg("Received SIGTERM, shutting down.")
---- <exception caught here> ---
-  File "/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/twisted/python/log.py", line 205, in msg
-    self.observers[i](actualEventDict)
-  File "/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/twisted/python/log.py", line 401, in emit
-    util.untilConcludes(self.write, timeStr + " " + msgStr)
-  File "/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/twisted/python/util.py", line 776, in untilConcludes
-    return f(*a, **kw)
-exceptions.IOError: [Errno 5] Input/output error
-
-[2014-06-05 18:30:40.358722]
+	Traceback (most recent call last):
+[2014-06-09 14:31:42.461668]
 ERROR
-	Log observer <bound method FileLogObserver.emit of <twisted.python.log.FileLogObserver instance at 0x102cf1b00>> failed.
-Traceback (most recent call last):
-  File "/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/twisted/internet/base.py", line 1169, in run
-    self.mainLoop()
-  File "/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/twisted/internet/base.py", line 1178, in mainLoop
-    self.runUntilCurrent()
-  File "/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/twisted/internet/base.py", line 775, in runUntilCurrent
-    log.err()
-  File "/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/twisted/python/log.py", line 134, in err
-    msg(failure=_stuff, why=_why, isError=1, **kw)
---- <exception caught here> ---
-  File "/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/twisted/python/log.py", line 205, in msg
-    self.observers[i](actualEventDict)
-  File "/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/twisted/python/log.py", line 401, in emit
-    util.untilConcludes(self.write, timeStr + " " + msgStr)
-  File "/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/twisted/python/util.py", line 776, in untilConcludes
-    return f(*a, **kw)
-exceptions.IOError: [Errno 5] Input/output error
-
-[2014-06-05 18:30:40.358978]
+	  File "appmain.py", line 29, in <module>
+[2014-06-09 14:31:42.461829]
 ERROR
-	Unhandled Error
-Traceback (most recent call last):
-  File "appmain.py", line 30, in <module>
-    ser.start()
-  File "/Library/Python/2.7/site-packages/firefly-1.3.2dev-py2.7.egg/firefly/server/server.py", line 135, in start
-    reactor.run()
-  File "/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/twisted/internet/base.py", line 1169, in run
-    self.mainLoop()
-  File "/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/twisted/internet/base.py", line 1178, in mainLoop
-    self.runUntilCurrent()
---- <exception caught here> ---
-  File "/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/twisted/internet/base.py", line 773, in runUntilCurrent
-    f(*a, **kw)
-  File "/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/twisted/internet/base.py", line 577, in stop
-    "Can't stop reactor that isn't running.")
-twisted.internet.error.ReactorNotRunning: Can't stop reactor that isn't running.
-
-[2014-06-05 18:30:40.362826]
+	    ser.config(serconfig, dbconfig=dbconf, memconfig=memconf,masterconf=masterconf)
+[2014-06-09 14:31:42.461913]
 ERROR
-	Log observer <bound method FileLogObserver.emit of <twisted.python.log.FileLogObserver instance at 0x102cf1b00>> failed.
-Traceback (most recent call last):
-  File "/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/twisted/python/context.py", line 118, in callWithContext
-    return self.currentContext().callWithContext(ctx, func, *args, **kw)
-  File "/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/twisted/python/context.py", line 81, in callWithContext
-    return func(*args,**kw)
-  File "/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/twisted/internet/tcp.py", line 1100, in connectionLost
-    self._logConnectionLostMsg()
-  File "/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/twisted/internet/tcp.py", line 1093, in _logConnectionLostMsg
-    log.msg('(%s Port %s Closed)' % (self._type, self._realPortNumber))
---- <exception caught here> ---
-  File "/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/twisted/python/log.py", line 205, in msg
-    self.observers[i](actualEventDict)
-  File "/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/twisted/python/log.py", line 401, in emit
-    util.untilConcludes(self.write, timeStr + " " + msgStr)
-  File "/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/twisted/python/util.py", line 776, in untilConcludes
-    return f(*a, **kw)
-exceptions.IOError: [Errno 5] Input/output error
-
-[2014-06-05 18:30:40.372202]
+	  File "/Library/Python/2.7/site-packages/firefly-1.3.2dev-py2.7.egg/firefly/server/server.py", line 110, in config
+[2014-06-09 14:31:42.462036]
 ERROR
-	Log observer <bound method FileLogObserver.emit of <twisted.python.log.FileLogObserver instance at 0x102cf1b00>> failed.
-Traceback (most recent call last):
-  File "/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/twisted/python/context.py", line 118, in callWithContext
-    return self.currentContext().callWithContext(ctx, func, *args, **kw)
-  File "/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/twisted/python/context.py", line 81, in callWithContext
-    return func(*args,**kw)
-  File "/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/twisted/internet/tcp.py", line 1110, in connectionLost
-    self.factory.doStop()
-  File "/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/twisted/internet/protocol.py", line 68, in doStop
-    log.msg("Stopping factory %r" % self)
---- <exception caught here> ---
-  File "/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/twisted/python/log.py", line 205, in msg
-    self.observers[i](actualEventDict)
-  File "/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/twisted/python/log.py", line 401, in emit
-    util.untilConcludes(self.write, timeStr + " " + msgStr)
-  File "/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/twisted/python/util.py", line 776, in untilConcludes
-    return f(*a, **kw)
-exceptions.IOError: [Errno 5] Input/output error
-
-[2014-06-05 18:30:40.373267]
+	    __import__(app)
+[2014-06-09 14:31:42.462164]
 ERROR
-	Log observer <bound method FileLogObserver.emit of <twisted.python.log.FileLogObserver instance at 0x102cf1b00>> failed.
-Traceback (most recent call last):
-  File "/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/twisted/python/context.py", line 81, in callWithContext
-    return func(*args,**kw)
-  File "/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/twisted/internet/tcp.py", line 474, in connectionLost
-    self.connector.connectionLost(reason)
-  File "/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/twisted/internet/base.py", line 1066, in connectionLost
-    self.factory.doStop()
-  File "/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/twisted/internet/protocol.py", line 68, in doStop
-    log.msg("Stopping factory %r" % self)
---- <exception caught here> ---
-  File "/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/twisted/python/log.py", line 205, in msg
-    self.observers[i](actualEventDict)
-  File "/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/twisted/python/log.py", line 401, in emit
-    util.untilConcludes(self.write, timeStr + " " + msgStr)
-  File "/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/twisted/python/util.py", line 776, in untilConcludes
-    return f(*a, **kw)
-exceptions.IOError: [Errno 5] Input/output error
-
-[2014-06-05 18:30:40.373952]
+	  File "/Users/Psyko/Desktop/gSoccer/app/chatserver.py", line 8, in <module>
+[2014-06-09 14:31:42.462307]
 ERROR
-	Log observer <bound method FileLogObserver.emit of <twisted.python.log.FileLogObserver instance at 0x102cf1b00>> failed.
-Traceback (most recent call last):
-  File "/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/twisted/python/context.py", line 118, in callWithContext
-    return self.currentContext().callWithContext(ctx, func, *args, **kw)
-  File "/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/twisted/python/context.py", line 81, in callWithContext
-    return func(*args,**kw)
-  File "/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/twisted/internet/tcp.py", line 1100, in connectionLost
-    self._logConnectionLostMsg()
-  File "/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/twisted/internet/tcp.py", line 1093, in _logConnectionLostMsg
-    log.msg('(%s Port %s Closed)' % (self._type, self._realPortNumber))
---- <exception caught here> ---
-  File "/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/twisted/python/log.py", line 205, in msg
-    self.observers[i](actualEventDict)
-  File "/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/twisted/python/log.py", line 401, in emit
-    util.untilConcludes(self.write, timeStr + " " + msgStr)
-  File "/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/twisted/python/util.py", line 776, in untilConcludes
-    return f(*a, **kw)
-exceptions.IOError: [Errno 5] Input/output error
-
-[2014-06-05 18:30:40.374576]
+	    initconfig.loadModule()
+[2014-06-09 14:31:42.462447]
 ERROR
-	Log observer <bound method FileLogObserver.emit of <twisted.python.log.FileLogObserver instance at 0x102cf1b00>> failed.
-Traceback (most recent call last):
-  File "/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/twisted/python/context.py", line 118, in callWithContext
-    return self.currentContext().callWithContext(ctx, func, *args, **kw)
-  File "/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/twisted/python/context.py", line 81, in callWithContext
-    return func(*args,**kw)
-  File "/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/twisted/internet/tcp.py", line 1110, in connectionLost
-    self.factory.doStop()
-  File "/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/twisted/internet/protocol.py", line 68, in doStop
-    log.msg("Stopping factory %r" % self)
---- <exception caught here> ---
-  File "/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/twisted/python/log.py", line 205, in msg
-    self.observers[i](actualEventDict)
-  File "/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/twisted/python/log.py", line 401, in emit
-    util.untilConcludes(self.write, timeStr + " " + msgStr)
-  File "/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/twisted/python/util.py", line 776, in untilConcludes
-    return f(*a, **kw)
-exceptions.IOError: [Errno 5] Input/output error
-
-[2014-06-05 18:30:40.376405]
+	  File "/Users/Psyko/Desktop/gSoccer/app/chatServer/initconfig.py", line 19, in loadModule
+[2014-06-09 14:31:42.462569]
 ERROR
-	Log observer <bound method FileLogObserver.emit of <twisted.python.log.FileLogObserver instance at 0x102cf1b00>> failed.
-Traceback (most recent call last):
-  File "appmain.py", line 30, in <module>
-    ser.start()
-  File "/Library/Python/2.7/site-packages/firefly-1.3.2dev-py2.7.egg/firefly/server/server.py", line 135, in start
-    reactor.run()
-  File "/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/twisted/internet/base.py", line 1169, in run
-    self.mainLoop()
-  File "/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/twisted/internet/base.py", line 1186, in mainLoop
-    log.msg('Main loop terminated.')
---- <exception caught here> ---
-  File "/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/twisted/python/log.py", line 205, in msg
-    self.observers[i](actualEventDict)
-  File "/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/twisted/python/log.py", line 401, in emit
-    util.untilConcludes(self.write, timeStr + " " + msgStr)
-  File "/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/twisted/python/util.py", line 776, in untilConcludes
-    return f(*a, **kw)
-exceptions.IOError: [Errno 5] Input/output error
-
+	    dbShieldWord.getAll_ShieldWord()
+[2014-06-09 14:31:42.462699]
+ERROR
+	  File "/Users/Psyko/Desktop/gSoccer/app/share/dbopear/dbShieldWord.py", line 14, in getAll_ShieldWord
+[2014-06-09 14:31:42.462837]
+ERROR
+	    conn=dbpool.connection()
+[2014-06-09 14:31:42.462962]
+ERROR
+	  File "/Library/Python/2.7/site-packages/gfirefly-0.1.5alpha-py2.7.egg/gfirefly/dbentrust/dbpool.py", line 27, in connection
+[2014-06-09 14:31:42.463102]
+ERROR
+	    return self.pool.connection()
+[2014-06-09 14:31:42.463244]
+ERROR
+	AttributeError: 'DBPool' object has no attribute 'pool'

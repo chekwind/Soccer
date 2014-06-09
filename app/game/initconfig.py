@@ -6,9 +6,9 @@ Created on 2014-1-17
 '''
 
 from dataloader import load_config_data
-from firefly.server.globalobject import GlobalObject
+from gfirefly.server.globalobject import GlobalObject
 from app.game.core.GamersManager import GamersManager
-from twisted.python import log
+from gtwisted.utils import log
 
 def doWhenStop():
 	"""服务器关闭前的处理
