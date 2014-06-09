@@ -5,7 +5,7 @@ Created on 2014-1-17
 @author: CC
 '''
 
-from firefly.dbentrust.dbpool import dbpool
+from gfirefly.dbentrust.dbpool import dbpool
 from MySQLdb.cursors import DictCursor
 
 tb_Experience_config={}

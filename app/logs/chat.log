@@ -1,0 +1,45 @@
+<<<<<<< HEAD
+=======
+[2014-06-09 14:31:42.461533]
+ERROR
+	Traceback (most recent call last):
+[2014-06-09 14:31:42.461668]
+ERROR
+	  File "appmain.py", line 29, in <module>
+[2014-06-09 14:31:42.461829]
+ERROR
+	    ser.config(serconfig, dbconfig=dbconf, memconfig=memconf,masterconf=masterconf)
+[2014-06-09 14:31:42.461913]
+ERROR
+	  File "/Library/Python/2.7/site-packages/firefly-1.3.2dev-py2.7.egg/firefly/server/server.py", line 110, in config
+[2014-06-09 14:31:42.462036]
+ERROR
+	    __import__(app)
+[2014-06-09 14:31:42.462164]
+ERROR
+	  File "/Users/Psyko/Desktop/gSoccer/app/chatserver.py", line 8, in <module>
+[2014-06-09 14:31:42.462307]
+ERROR
+	    initconfig.loadModule()
+[2014-06-09 14:31:42.462447]
+ERROR
+	  File "/Users/Psyko/Desktop/gSoccer/app/chatServer/initconfig.py", line 19, in loadModule
+[2014-06-09 14:31:42.462569]
+ERROR
+	    dbShieldWord.getAll_ShieldWord()
+[2014-06-09 14:31:42.462699]
+ERROR
+	  File "/Users/Psyko/Desktop/gSoccer/app/share/dbopear/dbShieldWord.py", line 14, in getAll_ShieldWord
+[2014-06-09 14:31:42.462837]
+ERROR
+	    conn=dbpool.connection()
+[2014-06-09 14:31:42.462962]
+ERROR
+	  File "/Library/Python/2.7/site-packages/gfirefly-0.1.5alpha-py2.7.egg/gfirefly/dbentrust/dbpool.py", line 27, in connection
+[2014-06-09 14:31:42.463102]
+ERROR
+	    return self.pool.connection()
+[2014-06-09 14:31:42.463244]
+ERROR
+	AttributeError: 'DBPool' object has no attribute 'pool'
+>>>>>>> FETCH_HEAD

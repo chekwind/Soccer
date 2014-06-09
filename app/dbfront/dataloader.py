@@ -6,8 +6,8 @@ Created on 2014-1-17
 '''
 
 import memmode
-from firefly.dbentrust.madminanager import MAdminManager
-from twisted.internet import reactor
+from gfirefly.dbentrust.madminanager import MAdminManager
+from gtwisted.core import reactor
 reactor=reactor
 
 def registe_madmin():

@@ -54,7 +54,6 @@ class CharacterFinanceComponent(Component):
 		if not delta:
 			return
 		self._coin=coin
-		print self._coin
 
 	def consCoin(self,consCoin,consType,consDesc='',itemId=0):
 		'''金币消耗

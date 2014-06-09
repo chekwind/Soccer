@@ -5,9 +5,9 @@ Created on 2014-1-17
 @author: CC
 '''
 
-from firefly.utils.singleton import Singleton
-from twisted.python import log
-from firefly.server.globalobject import GlobalObject
+from gfirefly.utils.singleton import Singleton
+from gtwisted.utils import log
+from gfirefly.server.globalobject import GlobalObject
 
 UP=20#每个场景服承载的角色上限
 

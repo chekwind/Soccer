@@ -5,7 +5,7 @@ Created on 2014-2-26
 @author: CC
 '''
 
-from firefly.dbentrust.dbpool import dbpool
+from gfirefly.dbentrust.dbpool import dbpool
 from MySQLdb.cursors import DictCursor
 
 TRAINMATCHNPC={}

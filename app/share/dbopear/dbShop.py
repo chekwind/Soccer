@@ -4,7 +4,7 @@ Created on 2014-2-24
 
 @author: CC
 '''
-from firefly.dbentrust.dbpool import dbpool
+from gfirefly.dbentrust.dbpool import dbpool
 from MySQLdb.cursors import DictCursor
 
 def getShopInfo(shopcategory):

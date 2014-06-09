@@ -5,8 +5,7 @@ Created on 2014-1-17
 @author: CC
 '''
 
-from firefly.utils.singleton import Singleton
-from twisted.python import log
+from gfirefly.utils.singleton import Singleton
 
 class VCharacterManager:
 	'''角色管理器'''

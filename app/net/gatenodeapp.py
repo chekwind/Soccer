@@ -5,7 +5,7 @@ Created on 2014-1-17
 @author: CC
 '''
 
-from firefly.server.globalobject import GlobalObject,remoteserviceHandle
+from gfirefly.server.globalobject import GlobalObject,remoteserviceHandle
 
 @remoteserviceHandle('gate')
 def pushObject(topicID,msg,sendList):

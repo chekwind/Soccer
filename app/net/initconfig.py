@@ -5,12 +5,12 @@ Created on 2014-1-17
 @author: CC
 '''
 
-from firefly.server.globalobject import GlobalObject
-from firefly.netconnect.datapack import DataPackProtoc
+from gfirefly.server.globalobject import GlobalObject
+from gfirefly.netconnect.datapack import DataPackProtoc
 
 def callWhenConnLost(conn):
 	dynamicId=conn.transport.sessionno
-	GlobalObject().remote['gate'].callRemote("netconnlost",dynamicId)
+	GlobalObject().remote['gate'].callRemoteNotForResult("netconnlost",dynamicId)
 
 GlobalObject().netfactory.doConnectionLost=callWhenConnLost
 dataprotocl=DataPackProtoc(78,37,38,48,9,0)
