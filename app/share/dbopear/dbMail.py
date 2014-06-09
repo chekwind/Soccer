@@ -5,10 +5,10 @@ Created on 2014-1-17
 @author: CC
 '''
 
-from gfirefly.dbentrust.dbpool import dbpool
+from firefly.dbentrust.dbpool import dbpool
 from MySQLdb.cursors import DictCursor
-from gtwisted.utils import log
-from gfirefly.dbentrust import util
+from twisted.python import log
+from firefly.dbentrust import util
 
 LEVEL_MAIL={}#所有等级的邮件提示
 

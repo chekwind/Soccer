@@ -5,7 +5,7 @@ Created on 2014-1-17
 @author: CC
 '''
 
-from gfirefly.dbentrust.dbpool import dbpool
+from firefly.dbentrust.dbpool import dbpool
 from MySQLdb.cursors import DictCursor
 
 all_ItemTemplate={} #所有的物品模板信息

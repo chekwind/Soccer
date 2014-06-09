@@ -5,7 +5,7 @@ Created on 2014-1-20
 @author: CC
 '''
 
-from gfirefly.dbentrust.dbpool import dbpool
+from firefly.dbentrust.dbpool import dbpool
 from MySQLdb.cursors import DictCursor
 
 def getAll():

@@ -1,9 +1,12 @@
 #coding:utf8
 
-from gevent import monkey;monkey.patch_os()
+import os
+if os.name!='nt' and os.name!='posix':
+    from twisted.internet import epollreactor
+    epollreactor.install()
 
 if __name__=="__main__":
-    from gfirefly.master.master import Master
+    from firefly.master.master import Master
     master = Master()
     master.config('config.json','appmain.py')
     master.start()

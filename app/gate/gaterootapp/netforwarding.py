@@ -5,7 +5,7 @@ Created on 2014-1-17
 @author: CC
 '''
 
-from gfirefly.server.globalobject import rootserviceHandle,GlobalObject
+from firefly.server.globalobject import rootserviceHandle,GlobalObject
 from app.gate.gateservice import localservice
 from app.gate.core.UsersManager import UsersManager
 from app.gate.core.VCharacterManager import VCharacterManager
@@ -52,8 +52,16 @@ def SaveGamerInfoInDB(dynamicId):
 	'''将玩家信息写入数据库'''
 	vcharacter=VCharacterManager().getVCharacterByClientId(dynamicId)
 	node=vcharacter.getNode()
-	result=GlobalObject().root.callChild(node,2,dynamicId)
-	return result
+	d=GlobalObject().root.callChild(node,2,dynamicId)
+	return d
+
+def SaveDBSuccedOrError(result,vcharacter):
+	'''写入角色数据成功后的处理
+	@param result:写入后返回的结果
+	@param vcharacter:角色的实例
+	'''
+	vcharacter.release()
+	return True
 
 def dropClient(deferResult,dynamicId,vcharacter):
 	'''清理客户端的记录
@@ -73,8 +81,8 @@ def netconnlost(dynamicId):
 	vcharacter=VCharacterManager().getVCharacterByClientId(dynamicId)
 	if vcharacter and vcharacter.getNode()>0:#判断是否已经登入角色
 		vcharacter.lock()#锁定角色
-		result=SaveGamerInfoInDB(dynamicId)#保存角色,写入角色数据
-		if result:
-			dropClient(result,dynamicId,vcharacter)#清理客户端的数据
+		d=SaveGamerInfoInDB(dynamicId)#保存角色,写入角色数据
+		d.addErrback(SaveDBSuccedOrError,vcharacter)#解锁角色
+		d.addCallback(dropClient,dynamicId,vcharacter)#清理客户端的数据
 	else:
 		UsersManager().dropUserByDynamicId(dynamicId)

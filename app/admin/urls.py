@@ -6,7 +6,7 @@ Created on 2014-3-20
 '''
 
 from MySQLdb.cursors import DictCursor
-from gfirefly.dbentrust.dbpool import dbpool
+from firefly.dbentrust.dbpool import dbpool
 
 def getIncomByData(onedata):
 	'''获取每天的缴费情况'''

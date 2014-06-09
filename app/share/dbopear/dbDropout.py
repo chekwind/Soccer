@@ -4,10 +4,10 @@ Created on 2014-3-11
 
 @author: CC
 '''
-from gfirefly.dbentrust.dbpool import dbpool
+from firefly.dbentrust.dbpool import dbpool
 from MySQLdb.cursors import DictCursor
 from app.game.core.Item import Item
-from gtwisted.utils import log
+from twisted.python import log
 
 TrainMatch_Dropout={}
 Challenge_Dropout={}

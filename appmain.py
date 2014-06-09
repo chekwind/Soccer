@@ -1,11 +1,15 @@
 #coding:utf8
 
-from gevent import monkey;monkey.patch_os()
+import os
+if os.name!='nt' and os.name!='posix':
+    from twisted.internet import epollreactor
+    epollreactor.install()
+
 import json,sys
 reload(sys)
 sys.setdefaultencoding('utf8')
 
-from gfirefly.server.server import FFServer
+from firefly.server.server import FFServer
 
 if __name__=="__main__":
     args = sys.argv
@@ -22,7 +26,7 @@ if __name__=="__main__":
     masterconf = config.get('master',{})
     serconfig = sersconf.get(servername)
     ser = FFServer()
-    ser.config(serconfig, servername=servername,dbconfig=dbconf, memconfig=memconf,masterconf=masterconf)
+    ser.config(serconfig, dbconfig=dbconf, memconfig=memconf,masterconf=masterconf)
     ser.start()
     
     

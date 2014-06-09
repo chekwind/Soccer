@@ -5,7 +5,7 @@ Created on 2014-1-17
 @author: CC
 '''
 
-from gfirefly.utils.singleton import Singleton
+from firefly.utils.singleton import Singleton
 
 class GamersManager:
 	'''在线角色单例管理器'''

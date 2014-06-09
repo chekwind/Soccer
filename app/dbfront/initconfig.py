@@ -6,7 +6,8 @@ Created on 2014-1-17
 '''
 
 from dataloader import registe_madmin,CheckMemDB,MAdminManager
-from gfirefly.server.globalobject import GlobalObject
+from firefly.dbentrust.memclient import mclient 
+from firefly.server.globalobject import GlobalObject
 
 def doWhenStop():
 	'''
@@ -19,5 +20,6 @@ def doWhenStop():
 GlobalObject().stophandler=doWhenStop
 
 def loadModule():
+	mclient.flush_all()
 	registe_madmin()
 	CheckMemDB(1800)

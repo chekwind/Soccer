@@ -8,6 +8,8 @@ Created on 2014-1-17
 from app.gate.appinterface import login
 import json
 from app.gate.gateservice import localserviceHandle
+from twisted.python import log
+
 
 @localserviceHandle
 def registerToServer_100(key,dynamicId,request_proto):
@@ -52,5 +54,9 @@ def roleLogin_103(key,dynamicId,request_proto):
 		return json.dumps(data)
 	placeId=data['data'].get('placeId',1000)
 	characterId=data['data'].get('characterId',0)
-	response=login.enterScene(dynamicId,characterId,placeId,True)
-	return json.dumps(response)
+	response={}
+	dd=login.enterScene(dynamicId,characterId,placeId,True)
+	if not dd:
+		return
+	dd.addCallback(SerializePartialEnterScene,response)
+	return dd

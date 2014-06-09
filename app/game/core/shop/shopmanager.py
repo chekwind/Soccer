@@ -4,7 +4,7 @@ Created on 2014-2-25
 
 @author: CC
 '''
-from gfirefly.utils.singleton import Singleton
+from firefly.utils.singleton import Singleton
 
 class ShopManager:
 	'''商店管理器'''

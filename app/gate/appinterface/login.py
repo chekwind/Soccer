@@ -12,7 +12,9 @@ from app.gate.core.VCharacterManager import VCharacterManager
 from app.share.dbopear import dbuser
 from app.game.core.language.Language import Lg
 from app.gate.core.scenesermanger import SceneSerManager
-from gfirefly.server.globalobject import GlobalObject
+from firefly.server.globalobject import GlobalObject
+
+from twisted.python import log
 
 def registerToServer(dynamicId,username,password):
 	'''注册

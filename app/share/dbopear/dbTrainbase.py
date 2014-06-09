@@ -5,9 +5,9 @@ Created on 2014-3-10
 @author: CC
 '''
 
-from gfirefly.dbentrust.dbpool import dbpool
+from firefly.dbentrust.dbpool import dbpool
 from MySQLdb.cursors import DictCursor
-from gfirefly.dbentrust import util
+from firefly.dbentrust import util
 
 def getTrainbaseInfo(characterId):
 	'''获取玩家训练基地信息'''

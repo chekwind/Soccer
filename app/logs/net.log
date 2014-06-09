@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 [2014-06-08 16:36:16.969982]
 ERROR
 	Unhandled error in Deferred:
@@ -9,5 +8,3 @@ Traceback (most recent call last):
 Failure: twisted.spread.pb.PBConnectionLost: [Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
 ]
 
-=======
->>>>>>> FETCH_HEAD

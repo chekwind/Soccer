@@ -4,7 +4,7 @@ Created on 2014-2-19
 
 @author: CC
 '''
-from gfirefly.dbentrust.dbpool import dbpool
+from firefly.dbentrust.dbpool import dbpool
 from MySQLdb.cursors import DictCursor
 
 def getZenconfigRole(zenid,playerpos):
